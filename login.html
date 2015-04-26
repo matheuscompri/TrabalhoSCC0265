@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8" />
+    <title>Página de Login</title>
+</head>
+
+<body>
+    <!-- Header and Search -->
+    <header>
+        <div class="deep-purple lighten-5 cabecalho">
+            <div class="container">
+                <div class="row">
+                    <div class="col s9">
+                        <img class="left mylogo" src="media/trank_logo.png" height="76" alt="logo">
+                        <div class="left white-text flow-text">
+                        </div>
+                        <div id="login_cadastro" class="hide-on-med-and-down right">
+                            <a class="waves-effect waves-light btn deep-purple" href="login.html">Login</a>
+                            <a class="waves-effect waves-light btn deep-purple" href="cadastro.html">Cadastro</a>
+                        </div>
+
+                    </div>
+                    <div class="col s3">
+                        <form>
+                            <div class="input-field">
+                                <input id="search" type="search" required>
+                                <label for="search"><i class="mdi-action-search"></i>
+                                </label>
+                                <i class="mdi-navigation-close"></i>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="left white-text flow-text">
+                        <p>Viagem tranquila é viagem com Trank.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Nav bar -->
+    <nav class="deep-purple darken-1">
+        <div class="container">
+            <div class="nav-wrapper">
+                <!-- Navbar logo -->
+                <a href="#" class="brand-logo">Trank</a>
+                <!-- Collapse button -->
+                <a href="#" data-activates="collapsednavbar" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                <!-- Navbar links -->
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">América</a>
+                    </li>
+                    <li><a href="#">Ásia</a>
+                    </li>
+                    <li><a href="#">Europa</a>
+                    </li>
+                </ul>
+                <!-- Navbar collapsed links -->
+                <ul id="collapsednavbar" class="side-nav">
+                    <li><a href="login.html">Login</a>
+                    </li>
+                    <li><a href="cadastro.html">Cadastro</a>
+                    </li>
+                    <li class="divider"></li>
+
+                    <li><a href="#">América</a>
+                    </li>
+                    <li><a href="#">Ásia</a>
+                    </li>
+                    <li><a href="#">Europa</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Main Layout -->
+    <main>
+        <div class="container">
+            <div class="deep-purple lighten-5">
+                <div class="row">
+                    <div class="col l6 offset-l3 m8 offset-m2 s10 offset-s1">
+                        <h5 class="center-align deep-purple-text">Digite seu usuário e senha:</h5>
+                        <form action="" method="POST">
+                            <div class="input-field">
+                                <label for="username">Usuário</label>
+                                <input type="text" id="username">
+                            </div>
+                            <div class="input-field">
+                                <label for="password">Senha</label>
+                                <input type="password" id="password">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="center-align">
+                    <button class="btn waves-effect waves-light" type="submit">Login
+                        <i class="mdi-action-account-circle left"></i>
+                    </button>
+                </div>
+                <br/>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer deep-purple">
+        <div class="container">
+            <div class="row">
+                <div class="col l4 s12">
+                    <h5 class="white-text">Trank</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="index.html">Página Inicial</a>
+                        </li>
+                        <li><a class="grey-text text-lighten-3" href="sobre.html">Sobre</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col l4 s12">
+                    <h5 class="white-text">Usuário</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="login.html">Entrar</a>
+                        </li>
+                        <li><a class="grey-text text-lighten-3" href="cadastro.html">Registar</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col l4 s12">
+                    <h5 class="white-text">Categorias</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="categoria.html?cat=america">América</a>
+                        </li>
+                        <li><a class="grey-text text-lighten-3" href="categoria.html?cat=asia">Ásia</a>
+                        </li>
+                        <li><a class="grey-text text-lighten-3" href="cateogira.html?cat=europa">Europa</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright deep-purple darken-1">
+            <div class="container">
+                © 2015 Matheus Compri e <a href="http://paulomoreno.me">Paulo Moreno</a>
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>
