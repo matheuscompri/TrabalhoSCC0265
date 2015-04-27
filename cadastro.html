@@ -19,8 +19,8 @@
         <div class="deep-purple lighten-5 cabecalho">
             <div class="container">
                 <div class="row">
-                    <div class="col s9">
-                        <img class="left mylogo" src="media/trank_logo.png" height="76" alt="logo">
+                    <div class="col s12">
+                        <img class="left mylogo" src="media/trank_logo.png" height="126" alt="logo">
                         <div class="left white-text flow-text">
                         </div>
                         <div id="login_cadastro" class="hide-on-med-and-down right">
@@ -28,6 +28,14 @@
                             <a class="waves-effect waves-light btn deep-purple" href="cadastro.html">Cadastro</a>
                         </div>
                     </div>
+
+                </div>
+                <div class="row">
+                    <div class="left white-text flow-text col s9">
+                        <p>Viagem tranquila é viagem com Trank.</p>
+                    </div>
+
+
                     <div class="col s3">
                         <form>
                             <div class="input-field">
@@ -38,11 +46,8 @@
                             </div>
                         </form>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="left white-text flow-text">
-                        <p>Viagem tranquila é viagem com Trank.</p>
-                    </div>
+
+
                 </div>
 
             </div>
@@ -50,35 +55,38 @@
     </header>
 
     <!-- Nav bar -->
-    <nav class="deep-purple darken-1">
+    <nav class="my-dark-purple my_shadow">
         <div class="container">
             <div class="nav-wrapper">
                 <!-- Navbar logo -->
-                <a href="#" class="brand-logo">Trank</a>
                 <!-- Collapse button -->
                 <a href="#" data-activates="collapsednavbar" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                 <!-- Navbar links -->
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#">América</a>
+                <ul class="hide-on-med-and-down ">
+                    <li><a href="index.html">Início</a>
+                    </li>                    
+                    <li><a href="categoria.html?cat=america">América</a>
                     </li>
-                    <li><a href="#">Ásia</a>
+                    <li><a href="categoria.html?cat=asia">Ásia</a>
                     </li>
-                    <li><a href="#">Europa</a>
+                    <li><a href="categoria.html?cat=europa">Europa</a>
                     </li>
                 </ul>
                 <!-- Navbar collapsed links -->
                 <ul id="collapsednavbar" class="side-nav">
+                    <li><a href="index.html">Início</a>
+                    </li>
+                    <li class="divider"></li>
                     <li><a href="login.html">Login</a>
                     </li>
                     <li><a href="cadastro.html">Cadastro</a>
                     </li>
                     <li class="divider"></li>
-
-                    <li><a href="#">América</a>
+                    <li><a href="categoria.html?cat=america">América</a>
                     </li>
-                    <li><a href="#">Ásia</a>
+                    <li><a href="categoria.html?cat=asia">Ásia</a>
                     </li>
-                    <li><a href="#">Europa</a>
+                    <li><a href="categoria.html?cat=europa">Europa</a>
                     </li>
                 </ul>
             </div>
@@ -87,10 +95,14 @@
 
     <!-- Main Layout -->
     <main>
-        <div class="container">
-            <div class="row">
 
-                <div class="col s9 card">
+
+    <div class="parallax-container">
+      <div class="parallax"><img src="media/bkg_1.jpg"></div>
+    
+        <div class="container">
+            <div class="row card transparent-white main-card">
+                <div class="col l9 m9 s12 right-border">
 
                     <div class="card-title deep-purple-text center-align">
                         <h2>Novo Usuário</h2>
@@ -171,23 +183,23 @@
                     </div>
                 </div>
 
-                <div class="col s3 lighten-1 card">
-                    <div class="card-title deep-purple-text center-align">
-                        <h2>Novo Usuário</h2>
-                    </div>
-                    <div class="card-content">
-                        Conteudo Relacionado
-                    </div>
-
+                <div class="col l3 m3 s12 sidebar center-align">
+                    <br/>
+                    <h5 class="deep-purple-text ">Já possui conta?</h5>            
+                    <a class="btn waves-effect waves-light deep-purple lighten-1" href="login.html">Entrar</a>
                 </div>
             </div>
+        </div>
+    </div>
+
+    
     </main>
 
     <!-- Footer -->
     <footer class="page-footer deep-purple">
         <div class="container">
             <div class="row">
-                <div class="col l4 s12">
+                <div class="col l4 m6 s12 center-align">
                     <h5 class="white-text">Trank</h5>
                     <ul>
                         <li><a class="grey-text text-lighten-3" href="index.html">Página Inicial</a>
@@ -196,7 +208,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col l4 s12">
+                <div class="col l4 m6 s12 center-align">
                     <h5 class="white-text">Usuário</h5>
                     <ul>
                         <li><a class="grey-text text-lighten-3" href="login.html">Entrar</a>
@@ -205,7 +217,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col l4 s12">
+                <div class="col l4 m12 s12 center-align">
                     <h5 class="white-text">Categorias</h5>
                     <ul>
                         <li><a class="grey-text text-lighten-3" href="categoria.html?cat=america">América</a>

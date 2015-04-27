@@ -2,6 +2,10 @@
     margin-bottom: 0;
 }
 
+footer.page-footer {
+    margin-top: 0;
+}
+
 .cabecalho {
     background: rgb(58, 34, 124);
     /* Old browsers */
@@ -30,19 +34,54 @@
     /* IE6-8 */
 }
 
-.slogan {
-    position: relative;
-    top: 30px;
+.my-dark-purple{
+    background-color: rgba(58, 34, 124, 1);
 }
 
-.lgnbtn {
-    position: relative;
-    top: 0;
+a{
+
 }
 
-.meu_card {
-    position: absolute;
+a:hover{
 }
+
+.main-card{
+    padding-bottom: 20px;
+}
+
+.transparent-white{
+    background-color: rgba(255,255,255,0.9);
+}
+
+.right-border{
+    border-right: solid 1px #dddddd;
+}
+
+.my_shadow{
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
+}
+
+.my_center{
+    margin: auto;
+}
+
+.select-dropdown{
+    z-index: 10;
+    max-height: 250px;
+}
+
+.select-dropdown li > span{
+    color: #5E35B1;
+}
+
+.parallax-container {
+    padding-top: 50px;
+    padding-bottom: 100px;
+  height: auto;
+}
+
 
 .input-field input[type=text]:focus + label {
     color: #000;
