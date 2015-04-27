@@ -58,6 +58,11 @@
     color: #595959;
 }
 
+label.active
+{
+    color: #5E35B1;
+}
+
 .input-field input[type=text]:focus, .input-field input[type=password]:focus{
     border-bottom: 1px solid #5E35B1;
     box-shadow: 0 1px 0 0 #FFF;
