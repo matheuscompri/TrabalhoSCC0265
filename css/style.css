@@ -58,9 +58,9 @@
     color: #595959;
 }
 
-label.active
+.input-field label.active
 {
-    color: #5E35B1;
+    color: #595959 !important;
 }
 
 .input-field input[type=text]:focus, .input-field input[type=password]:focus{
