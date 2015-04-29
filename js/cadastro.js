@@ -54,7 +54,26 @@ $(document).ready(function () {
 
         }
     });
+    
+    $('#email').focusout(function () {
+        // Verificando se o email esta vazia
+        if ($('#email').val().trim() === '') {
+            Materialize.toast('E-Mail deve ser preenchido', 4000, 'rounded red darken-4 left');
+            $('#email').addClass("invalid");
+        } else {
+            $('#email').removeClass("invalid");
+        }
+        
+        // Verificando o email
+        if (is_email($('#email').val()) === false) {
+            Materialize.toast('E-Mail inválido', 4000, 'rounded red darken-4 left');
+            $('#email').addClass("invalid");
+        } else {
+            $('#email').removeClass("invalid");
+        }
 
+    });
+    
     $('#senha').focusout(function () {
         // Verificando se a senha esta vazia
         if ($('#senha').val().trim() === '') {
@@ -86,3 +105,10 @@ $(document).ready(function () {
         }
     });
 });
+
+// Funcao q verifica o e-mail
+function is_email(email) {
+    // Regex para validar email
+    var mailReg = /^[a-z](([a-z0-9.])*[^.])?@[a-z0-9]+([.][a-z]+)+$/;
+    return mailReg.test(email);
+}
