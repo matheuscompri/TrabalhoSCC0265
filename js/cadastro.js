@@ -23,7 +23,6 @@ $(document).ready(function () {
         onInvalid: function (val, e, f, invalid, options) {
             var error = invalid[0];
             Materialize.toast('Caractere \'' + error.v + '\' Inválido para o Nome Completo!', 4000, 'rounded red darken-4 left');
-            console.log("Digit: ", error.v, " is invalid for the position: ", error.p, ". We expect something like: ", error.e);
         }
     });
 
@@ -40,7 +39,14 @@ $(document).ready(function () {
         onInvalid: function (val, e, f, invalid, options) {
             var error = invalid[0];
             Materialize.toast('Caractere \'' + error.v + '\' Inválido para a Cidade!', 4000, 'rounded red darken-4 left');
-            console.log("Digit: ", error.v, " is invalid for the position: ", error.p, ". We expect something like: ", error.e);
+        }
+    });
+
+    $('#data_nasc').mask("00/00/0000", {
+        placeholder: "__/__/____",
+        onInvalid: function (val, e, f, invalid, options) {
+            var error = invalid[0];
+            Materialize.toast('Caractere \'' + error.v + '\' Inválido para a Data!', 4000, 'rounded red darken-4 left');
         }
     });
 
@@ -48,7 +54,6 @@ $(document).ready(function () {
         onInvalid: function (val, e, f, invalid, options) {
             var error = invalid[0];
             Materialize.toast('Caractere \'' + error.v + '\' Inválido para o Telefone!', 4000, 'rounded red darken-4 left');
-            console.log("Digit: ", error.v, " is invalid for the position: ", error.p, ". We expect something like: ", error.e);
         }
     });
 
@@ -83,7 +88,7 @@ $(document).ready(function () {
     $('#conf_senha').focusout(function () {
         // Verificando se a confirmacao de senha esta vazia
         if ($('#conf_senha').val().trim() === '') {
-            Materialize.toast('A Senha é obrigatoria', 4000, 'rounded red darken-4 left');
+            Materialize.toast('Confirme sua senha', 4000, 'rounded red darken-4 left');
             $('#conf_senha').addClass("invalid");
         } else {
             $('#conf_senha').removeClass("invalid");
@@ -97,6 +102,25 @@ $(document).ready(function () {
         } else {
             $('#senha').removeClass("invalid");
             $('#conf_senha').removeClass("invalid");
+        }
+    });
+
+    $('#registerForm').submit(function () {
+        var valid = true;
+        var stringDate = $('#data_nasc').val();
+        var data_nasc = new Date(stringDate.substr(6, 4), stringDate.substr(3, 2) - 1, stringDate.substr(0, 2));
+                
+        if (data_nasc > new Date().addYears(-13)) {
+            valid = false;
+            Materialize.toast('Você precisa ter mais de 13 anos para poder utilizar o site', 4000, 'rounded red darken-4 left');
+            $('#data_nasc').addClass("invalid");
+        }
+        else{
+            $('#data_nasc').removeClass("invalid");
+        }
+
+        if (!valid) {
+            event.preventDefault();
         }
     });
 });
