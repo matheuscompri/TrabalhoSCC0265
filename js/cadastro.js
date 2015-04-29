@@ -24,7 +24,6 @@ $(document).ready(function () {
             var error = invalid[0];
             Materialize.toast('Caractere \'' + error.v + '\' Inválido para o Nome Completo!', 4000, 'rounded red darken-4 left');
             console.log("Digit: ", error.v, " is invalid for the position: ", error.p, ". We expect something like: ", error.e);
-
         }
     });
 
@@ -42,7 +41,6 @@ $(document).ready(function () {
             var error = invalid[0];
             Materialize.toast('Caractere \'' + error.v + '\' Inválido para a Cidade!', 4000, 'rounded red darken-4 left');
             console.log("Digit: ", error.v, " is invalid for the position: ", error.p, ". We expect something like: ", error.e);
-
         }
     });
 
@@ -51,10 +49,9 @@ $(document).ready(function () {
             var error = invalid[0];
             Materialize.toast('Caractere \'' + error.v + '\' Inválido para o Telefone!', 4000, 'rounded red darken-4 left');
             console.log("Digit: ", error.v, " is invalid for the position: ", error.p, ". We expect something like: ", error.e);
-
         }
     });
-    
+
     $('#email').focusout(function () {
         // Verificando se o email esta vazia
         if ($('#email').val().trim() === '') {
@@ -63,7 +60,7 @@ $(document).ready(function () {
         } else {
             $('#email').removeClass("invalid");
         }
-        
+
         // Verificando o email
         if (is_email($('#email').val()) === false) {
             Materialize.toast('E-Mail inválido', 4000, 'rounded red darken-4 left');
@@ -71,9 +68,8 @@ $(document).ready(function () {
         } else {
             $('#email').removeClass("invalid");
         }
-
     });
-    
+
     $('#senha').focusout(function () {
         // Verificando se a senha esta vazia
         if ($('#senha').val().trim() === '') {
@@ -82,9 +78,8 @@ $(document).ready(function () {
         } else {
             $('#senha').removeClass("invalid");
         }
-
     });
-    
+
     $('#conf_senha').focusout(function () {
         // Verificando se a confirmacao de senha esta vazia
         if ($('#conf_senha').val().trim() === '') {
@@ -93,7 +88,7 @@ $(document).ready(function () {
         } else {
             $('#conf_senha').removeClass("invalid");
         }
-        
+
         // Verificando se as senhas sao diferentes
         if ($('#conf_senha').val() !== $('#senha').val()) {
             Materialize.toast('Senhas diferentes', 4000, 'rounded red darken-4 left');

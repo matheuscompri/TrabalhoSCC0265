@@ -63,7 +63,7 @@
                 <!-- Navbar links -->
                 <ul class="hide-on-med-and-down ">
                     <li><a href="index.html">Início</a>
-                    </li>                    
+                    </li>
                     <li><a href="categoria.html?cat=america">América</a>
                     </li>
                     <li><a href="categoria.html?cat=asia">Ásia</a>
@@ -96,57 +96,58 @@
     <main>
 
 
-    <div class="parallax-container">
-      <div class="parallax"><img src="media/bkg_1.jpg"></div>
-    
-        <div class="container">
-            <div class="row card transparent-white main-card">
-                <div class="col l9 m9 s12 right-border">
+        <div class="parallax-container">
+            <div class="parallax"><img src="media/bkg_1.jpg">
+            </div>
 
-                    <div class="card-title deep-purple-text center-align">
-                        <h2>Entrar</h2>
-                    </div>
-                    <div class="card-content">
+            <div class="container">
+                <div class="row card transparent-white main-card">
+                    <div class="col l9 m9 s12 right-border">
 
-                    <div class="row">
-                        <div class="col l6 offset-l3 m8 offset-m2 s10 offset-s1">
-                            <form action="" method="POST">
-                                <div class="input-field">
-                                    <i class="mdi-action-account-circle prefix"></i>
-                                    <label for="username">Usuário</label>
-                                    <input type="text" id="username">
+                        <div class="card-title deep-purple-text center-align">
+                            <h2>Entrar</h2>
+                        </div>
+                        <div class="card-content">
+
+                            <div class="row">
+                                <div class="col l6 offset-l3 m8 offset-m2 s10 offset-s1">
+                                    <form id="loginForm" action="" method="POST">
+                                        <div class="input-field">
+                                            <i class="mdi-action-account-circle prefix"></i>
+                                            <label for="username">Usuário</label>
+                                            <input type="text" id="username">
+                                        </div>
+                                        <div class="input-field">
+                                            <i class="mdi-action-lock prefix"></i>
+                                            <label for="password">Senha</label>
+                                            <input type="password" id="senha">
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="input-field">
-                                    <i class="mdi-action-lock prefix"></i>
-                                    <label for="password">Senha</label>
-                                    <input type="password" id="password">
-                                </div>
-                            </form>
+                            </div>
+
+                            <div class="center-align">
+                                <button form="loginForm" class="btn waves-effect waves-light deep-purple lighten-1" type="submit">Entrar</button>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div class="row center-align">
-                        <button class="btn waves-effect waves-light deep-purple lighten-1" type="submit">Entrar</button>
-                    </div>
+                    <div class="col l3 m3 s12 sidebar center-align">
+                        <div class="card-content">
+                            <br/>
+                            <h5 class="deep-purple-text ">É novo por aqui?</h5>
+                            <a class="btn waves-effect waves-light deep-purple lighten-1" href="cadastro.html">Cadastre-se!</a>
+                            <br/>
+                        </div>
 
                     </div>
                 </div>
 
-                <div class="col l3 m3 s12 sidebar center-align">
-                    <div class="card-content">
-                        <br/>
-                        <h5 class="deep-purple-text ">É novo por aqui?</h5>            
-                        <a class="btn waves-effect waves-light deep-purple lighten-1" href="cadastro.html">Cadastre-se!</a>
-                        <br/>
-                    </div>
-
-                </div>
             </div>
-
         </div>
-    </div>
 
-    
+
     </main>
 
     <!-- Footer -->
@@ -193,7 +194,7 @@
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="js/jquery-2.1.3.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
 </body>
 
 </html>
