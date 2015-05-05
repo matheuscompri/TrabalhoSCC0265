@@ -8,9 +8,26 @@
 
         <ul>
             <li ng-repeat="lugar in lugares">
-                <h3>{{lugar.nome}}</h3>
-                <p>{{lugar.descricao}}</p>
-                <p>{{lugar.autor}}</p>
+                <div class="row">
+                    <div class="col s12 m12 l6">
+                        <a ng-href="#/lugares/{{lugar.id}}" >
+                            <img ng-src="{{ lugar.imagens[0] }}" class="responsive-img" >
+                        </a>
+                    </div>
+                    <div class="col s12 m12 l6">
+                        <h3><a ng-href="#/lugares/{{lugar.id}}">{{lugar.nome}}</a></h3>
+                        <p><b>Descrição: </b>{{lugar.descricao}}</p>
+                        <p><b>Outras informações: </b>?</p>
+                        <p><b>Avaliação: </b><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i></p>
+                        <p><b>Quantidade de Avaliadores: </b></p>
+                        <p><b>Comparação com Outros X: </b></p>
+                    </div>
+                </div>
+
+                <br />
+                <div class="divider"></div>
+                <br />
+
             </li>
         </ul>
 

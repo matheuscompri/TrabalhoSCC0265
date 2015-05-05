@@ -33,6 +33,20 @@ trank.config(function ($routeProvider) {
         }
     }); 
     
+    $routeProvider.when("/lugares/:lugarId", {
+        controller: "LugarController",
+        templateUrl: "listaLugar.html",
+        resolve:{
+            lugar : function(lugaresApi, $route) {
+                var lugarId = $route.current.params.lugarId;
+                console.log(lugarId);
+                console.log(lugaresApi.listarLugar(lugarId));
+
+                return lugaresApi.listarLugar(lugarId);
+            }
+        }
+    }); 
+
     $routeProvider.otherwise({
         template: "<h1>404 Not Found</h1>"
     });
