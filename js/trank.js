@@ -4,6 +4,7 @@ trank = angular.module("trankApp", ["ngRoute", "lugaresApi"]);
 
 trank.config(function ($routeProvider) {
     $routeProvider.when("/", {
+        controller: "InicioController",
         templateUrl: "inicio.html"
     });
     

@@ -5,6 +5,11 @@
         $scope.$on("$viewContentLoaded", function() {initCadastro()});
     });
 
+    trank.controller("InicioController", function($scope, lugaresApi) {
+        $scope.lugares = lugaresApi.listaTodosLugares();
+        $scope.categorias = lugaresApi.listarCategorias();
+    });
+    
     trank.controller("MenuController", function($scope, lugaresApi) {
         $scope.categorias = lugaresApi.listarCategorias();
     });
