@@ -17,9 +17,11 @@
         $scope.usuario = false;
 
         $rootScope.$watch('usuario', function( u ){
-          if( u ){
             $scope.usuario = u;
-          }
+        });
+
+        $scope.$watch('usuario',function(u){
+            $rootScope.usuario = u;
         });
 
     });
