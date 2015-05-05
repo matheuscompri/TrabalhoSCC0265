@@ -23,6 +23,11 @@
         $scope.lugares = lugares;
     });
 
+    trank.controller("LugarController", function($scope, lugar) {
+        console.log(lugar);
+        $scope.lugar = lugar;
+    });
+
 
 })();
 

@@ -1,0 +1,46 @@
+<div class="row card transparent-white main-card">
+    <div class="col l9 m9 s12 right-border">
+
+        <div class="card-title deep-purple-text center-align">
+            <h2>{{ lugar.nome }} </h2>
+        </div>
+        <div class="card-content">
+
+            <div class="row">
+
+                <h3>Informações Gerais:</h3>
+                <p><b>Nome: </b>{{lugar.nome}}</p>
+                <p><b>Descrição: </b>{{lugar.descricao}}</p>
+                <p><b>Autor: </b>{{ lugar.autor }}</p>
+                <p><b>Categorias: </b> <span ng-repeat="cat in lugar.categorias">{{ cat }}</span></p>  
+                <p><b>Outras Infor: </p>
+
+                <h3>Comentários</h3>
+                <h3>Avaliar</h3>
+                <h3>Imagens</h3>
+                    <div class="slider">
+                        <ul class="slides">
+                          <li ng-repeat="img in lugar.imagens">
+                            <img ng-src="{{ img }}" class="responsive-img" >
+                          </li>
+                        </ul>
+                    </div>
+                <h3>Exportar</h3>
+                    <a>XML</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col l3 m3 s12 sidebar center-align">
+        <div class="card-content">
+            <br/>
+            <h5 class="deep-purple-text ">É novo por aqui?</h5>
+            <a class="btn waves-effect waves-light deep-purple lighten-1" href="cadastro.html">Cadastre-se!</a>
+            <br/>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="js/login.js"></script>
