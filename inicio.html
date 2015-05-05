@@ -6,47 +6,15 @@
         </div>
         <div class="card-content">
 
-            <h3>América</h3>
-            <article>
-                Coisa x1
-            </article>
-            <article>
-                Coisa x2
-            </article>
-            <article>
-                Coisa x3
-            </article>
-            <article>
-                Coisa x4
-            </article>
-
-            <h3>Asia</h3>
-            <article>
-                Coisa x1
-            </article>
-            <article>
-                Coisa x2
-            </article>
-            <article>
-                Coisa x3
-            </article>
-            <article>
-                Coisa x4
-            </article>
-
-            <h3>Europa</h3>
-            <article>
-                Coisa x1
-            </article>
-            <article>
-                Coisa x2
-            </article>
-            <article>
-                Coisa x3
-            </article>
-            <article>
-                Coisa x4
-            </article>
+            <ul>
+                <li ng-repeat="categoria in categorias">{{categoria.nome}}
+                    <ul>
+                        <li ng-repeat="lugar in lugares | filter:{ categorias : categoria.id }:false ">
+                            {{lugar.nome}}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
         </div>
 

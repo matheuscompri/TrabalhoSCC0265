@@ -158,6 +158,9 @@ api.factory("lugaresApi", function() {
 			return lugares_filtrados;
 
 		},
+        listaTodosLugares: function(){
+            return lugares;
+        },
 		listarLugar: function(lugarId){
 			//Filtra lugares de acordo com a categoria
 			var lugares_filtrados = lugares.filter(function(lugar){
