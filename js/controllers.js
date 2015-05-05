@@ -4,6 +4,21 @@
     trank.controller("CadastroController", function($scope) {
         $scope.$on("$viewContentLoaded", function() {initCadastro()});
     });
+
+    trank.controller("MenuController", function($scope, lugaresApi) {
+        $scope.categorias = lugaresApi.listarCategorias();
+    });
+
+    trank.controller("LugaresController", function($scope, categoria, lugares) {
+        //categoria = "america"
+        console.log(categoria);
+        console.log(lugares);
+
+        $scope.categoria = categoria[0];
+        $scope.lugares = lugares;
+    });
+
+
 })();
 
 function initCadastro(){

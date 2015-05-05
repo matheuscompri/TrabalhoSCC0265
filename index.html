@@ -55,7 +55,7 @@
     </header>
 
     <!-- Nav bar -->
-    <nav class="my-dark-purple my_shadow">
+    <nav class="my-dark-purple my_shadow" ng-controller="MenuController">
         <div class="container">
             <div class="nav-wrapper">
                 <!-- Navbar logo -->
@@ -65,11 +65,8 @@
                 <ul class="hide-on-med-and-down ">
                     <li><a href="#/">Início</a>
                     </li>
-                    <li><a href="categoria.html?cat=america">América</a>
-                    </li>
-                    <li><a href="categoria.html?cat=asia">Ásia</a>
-                    </li>
-                    <li><a href="categoria.html?cat=europa">Europa</a>
+                    <li ng-repeat="c in categorias">
+                            <a ng-href="#/categorias/{{ c.id }}">{{ c.nome }}</a>
                     </li>
                 </ul>
                 <!-- Navbar collapsed links -->
@@ -82,11 +79,8 @@
                     <li><a href="#/cadastro">Cadastro</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="categoria.html?cat=america">América</a>
-                    </li>
-                    <li><a href="categoria.html?cat=asia">Ásia</a>
-                    </li>
-                    <li><a href="categoria.html?cat=europa">Europa</a>
+                    <li ng-repeat="c in categorias">
+                            <a ng-href="#/categorias/{{ c.id }}">{{ c.nome }}</a>
                     </li>
                 </ul>
             </div>
@@ -113,7 +107,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="page-footer deep-purple">
+    <footer class="page-footer deep-purple" ng-controller="MenuController">
         <div class="container">
             <div class="row">
                 <div class="col l4 m6 s12 center-align">
@@ -137,11 +131,8 @@
                 <div class="col l4 m12 s12 center-align">
                     <h5 class="white-text">Categorias</h5>
                     <ul>
-                        <li><a class="grey-text text-lighten-3" href="categoria.html?cat=america">América</a>
-                        </li>
-                        <li><a class="grey-text text-lighten-3" href="categoria.html?cat=asia">Ásia</a>
-                        </li>
-                        <li><a class="grey-text text-lighten-3" href="cateogira.html?cat=europa">Europa</a>
+                        <li ng-repeat="c in categorias">
+                            <a ng-href="#/categorias/{{ c.id }}">{{ c.nome }}</a>
                         </li>
                     </ul>
                 </div>
@@ -160,8 +151,8 @@
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
-
     <script type="text/javascript" src="js/trank.js"></script>
+    <script type="text/javascript" src="js/lugaresApi.js"></script>
     <script type="text/javascript" src="js/controllers.js"></script>
 
 </body>
