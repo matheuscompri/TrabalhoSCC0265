@@ -9,8 +9,8 @@
             <ul>
                 <li ng-repeat="categoria in categorias">{{categoria.nome}}
                     <ul>
-                        <li ng-repeat="lugar in lugares | filter:{ categorias : categoria.id }:false ">
-                            {{lugar.nome}}
+                        <li ng-repeat="lugar in lugares | filter:{ categorias : categoria.id } | orderBy:'data':true | limitTo: 4">
+                            {{lugar.nome}} - {{ lugar.data  | date:"dd/MM/yyyy hh:mm:ss"}}
                         </li>
                     </ul>
                 </li>

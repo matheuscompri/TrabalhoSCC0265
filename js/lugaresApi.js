@@ -22,7 +22,7 @@ api.factory("lugaresApi", function() {
 			"imagens" : ["media/lugares/1.jpg"],
 			"categorias" : ["america"],
 			"componentes" : [],
-			"data" : new Date(),
+			"data" : new Date(2010, 12, 10),
 			"id" : 1
 		},
 		
@@ -164,10 +164,12 @@ api.factory("lugaresApi", function() {
 		listarLugar: function(lugarId){
 			//Filtra lugares de acordo com a categoria
 			var lugares_filtrados = lugares.filter(function(lugar){
-				return lugar.id === lugarId;
+				return parseInt(lugar.id) === parseInt(lugarId);
 			});
-
-			return lugares_filtrados;
+            if(lugares_filtrados.length)
+                return lugares_filtrados[0];
+            else
+                return {};
 		},
 
 		listarCategoria: function(catId){

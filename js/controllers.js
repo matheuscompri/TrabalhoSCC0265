@@ -1,20 +1,22 @@
-(function() {
+(function () {
     var trank = angular.module("trankApp");
-    
-    trank.controller("CadastroController", function($scope) {
-        $scope.$on("$viewContentLoaded", function() {initCadastro()});
+
+    trank.controller("CadastroController", function ($scope) {
+        $scope.$on("$viewContentLoaded", function () {
+            initCadastro()
+        });
     });
 
-    trank.controller("InicioController", function($scope, lugaresApi) {
+    trank.controller("InicioController", function ($scope, lugaresApi) {
         $scope.lugares = lugaresApi.listaTodosLugares();
         $scope.categorias = lugaresApi.listarCategorias();
     });
-    
-    trank.controller("MenuController", function($scope, lugaresApi) {
+
+    trank.controller("MenuController", function ($scope, lugaresApi) {
         $scope.categorias = lugaresApi.listarCategorias();
     });
 
-    trank.controller("LugaresController", function($scope, categoria, lugares) {
+    trank.controller("LugaresController", function ($scope, categoria, lugares) {
         //categoria = "america"
         console.log(categoria);
         console.log(lugares);
@@ -23,15 +25,30 @@
         $scope.lugares = lugares;
     });
 
-    trank.controller("LugarController", function($scope, lugar) {
-        console.log(lugar);
+    trank.controller("LugarController", function ($scope, lugar) {
         $scope.lugar = lugar;
+        /*$scope.$on("$viewContentLoaded", function () {
+            $('.slider').slider({
+                full_width: true
+            });
+        });*/
     });
+    
+    trank.directive("slider", function(){
+       return function(scope, element, attrs)
+       {
+           scope.$watch("lugar.imagens", function () {
+            $('.slider').slider({
+                full_width: true
+            });
 
+        });
+       }
+    });
 
 })();
 
-function initCadastro(){
+function initCadastro() {
     console.log("Hey!!");
     $(".button-collapse").sideNav();
 
@@ -143,13 +160,12 @@ function initCadastro(){
         var valid = true;
         var stringDate = $('#data_nasc').val();
         var data_nasc = new Date(stringDate.substr(6, 4), stringDate.substr(3, 2) - 1, stringDate.substr(0, 2));
-                
+
         if (data_nasc > new Date().addYears(-13)) {
             valid = false;
             Materialize.toast('Você precisa ter mais de 13 anos para poder utilizar o site', 4000, 'rounded red darken-4 left');
             $('#data_nasc').addClass("invalid");
-        }
-        else{
+        } else {
             $('#data_nasc').removeClass("invalid");
         }
 

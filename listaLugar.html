@@ -12,21 +12,24 @@
                 <p><b>Nome: </b>{{lugar.nome}}</p>
                 <p><b>Descrição: </b>{{lugar.descricao}}</p>
                 <p><b>Autor: </b>{{ lugar.autor }}</p>
-                <p><b>Categorias: </b> <span ng-repeat="cat in lugar.categorias">{{ cat }}</span></p>  
-                <p><b>Outras Infor: </p>
+                <p><b>Categorias: </b> <span ng-repeat="cat in lugar.categorias">{{ cat }}</span>
+                </p>
+                <p><b>Outras Infor: </b>
+                </p>
 
                 <h3>Comentários</h3>
                 <h3>Avaliar</h3>
                 <h3>Imagens</h3>
-                    <div class="slider">
-                        <ul class="slides">
-                          <li ng-repeat="img in lugar.imagens">
-                            <img ng-src="{{ img }}" class="responsive-img" >
-                          </li>
-                        </ul>
-                    </div>
+                <div class="slider">
+                    <ul class="slides">
+                        <li ng-repeat="img in lugar.imagens" slider>
+                            <img ng-src="{{ img }}">
+                        </li>
+                        
+                    </ul>
+                </div>
                 <h3>Exportar</h3>
-                    <a>XML</a>
+                <a>XML</a>
             </div>
         </div>
 
