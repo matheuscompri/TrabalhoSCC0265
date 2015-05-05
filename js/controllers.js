@@ -12,24 +12,33 @@
         $scope.categorias = lugaresApi.listarCategorias();
     });
 
-    trank.controller("EntrarController", function ($scope, lugaresApi) {
+    trank.controller("MenuController", function ($rootScope, $scope, lugaresApi) {
+        $scope.categorias = lugaresApi.listarCategorias();
+        $scope.usuario = false;
+
+        $rootScope.$watch('usuario', function( u ){
+          if( u ){
+            $scope.usuario = u;
+          }
+        });
+
+    });
+
+
+    trank.controller("EntrarController", function ($rootScope, $scope, lugaresApi) {
         $scope.usuario = "";
         $scope.senha = "";
 
         $scope.entrar = function(usuario,senha){
             var u = lugaresApi.login(usuario,senha); 
-            if(u){
-                alert("login deu bom");
+            if(u){  
+                $rootScope.usuario = u;
             }else{
-                alert("SUA TENTATIVA DE HACKEAR DE RUIM. SE FODE AI LEK.");
+                $rootScope.usuario = false;
             }
         };
     });
 
-    trank.controller("MenuController", function ($scope, lugaresApi) {
-        $scope.categorias = lugaresApi.listarCategorias();
-        $scope.estaAutenticado = lugaresApi.estaAutenticado();
-    });
 
     trank.controller("LugaresController", function ($scope, categoria, lugares) {
         //categoria = "america"
@@ -60,7 +69,7 @@
         });
        }
     });
-
+       
 })();
 
 function initCadastro() {

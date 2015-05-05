@@ -25,13 +25,13 @@
                         </div>
                         <div id="login_cadastro" class="hide-on-med-and-down right">
 
-                            <div ng-hide="estaAutenticado">
+                            <div ng-hide="usuario">
                             <a class="waves-effect waves-light btn deep-purple" href="#/entrar">Login</a>
                             <a class="waves-effect waves-light btn deep-purple" href="#/cadastro">Cadastro</a>
                             </div>
 
-                            <div ng-show="estaAutenticado">
-                            <p class="btn deep-purple">Bem Vindo, {{ estaAutenticado.nome }}</p>
+                            <div ng-show="usuario">
+                            <a class="btn disabled deep-purple white-text">Bem Vindo, {{ usuario.nome }}</a>
                             </div>
 
                         </div>

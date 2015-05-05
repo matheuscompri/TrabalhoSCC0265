@@ -2,8 +2,6 @@ var api = angular.module("lugaresApi", []);
 
 api.factory("lugaresApi", function() {
 
-	var estaAutenticado = false;
-
 	var usuarios = [
 		{ 	"nome" : "Paulo",
 			"data_nascimento" : "01/01/1950",
@@ -204,25 +202,16 @@ api.factory("lugaresApi", function() {
 
 		login: function(usuario,senha){
 
-			console.log('login attempt:');
-			console.log(usuario);
-			console.log(senha);
-
 			var u = usuarios.filter(function(u){
 				return u.senha === senha && u.email.toLowerCase() === usuario.toLowerCase();
 			});
 
 			if (u.length > 0){
-				estaAutenticado = u[0];
 				return u[0];
 			}else{
 				return false;
 			}
 
-		},
-
-		estaAutenticado: function(){
-			return estaAutenticado;
 		},
 
 		novoUsuario: function(nome,data_nasc,estado,cidade,telefone,email,senha){
