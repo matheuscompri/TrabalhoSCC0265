@@ -24,8 +24,16 @@
                         <div class="left white-text flow-text">
                         </div>
                         <div id="login_cadastro" class="hide-on-med-and-down right">
+
+                            <div ng-hide="estaAutenticado">
                             <a class="waves-effect waves-light btn deep-purple" href="#/entrar">Login</a>
                             <a class="waves-effect waves-light btn deep-purple" href="#/cadastro">Cadastro</a>
+                            </div>
+
+                            <div ng-show="estaAutenticado">
+                            <p class="btn deep-purple">Bem Vindo, {{ estaAutenticado.nome }}</p>
+                            </div>
+
                         </div>
                     </div>
 

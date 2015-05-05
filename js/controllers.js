@@ -12,8 +12,23 @@
         $scope.categorias = lugaresApi.listarCategorias();
     });
 
+    trank.controller("EntrarController", function ($scope, lugaresApi) {
+        $scope.usuario = "";
+        $scope.senha = "";
+
+        $scope.entrar = function(usuario,senha){
+            var u = lugaresApi.login(usuario,senha); 
+            if(u){
+                alert("login deu bom");
+            }else{
+                alert("SUA TENTATIVA DE HACKEAR DE RUIM. SE FODE AI LEK.");
+            }
+        };
+    });
+
     trank.controller("MenuController", function ($scope, lugaresApi) {
         $scope.categorias = lugaresApi.listarCategorias();
+        $scope.estaAutenticado = lugaresApi.estaAutenticado();
     });
 
     trank.controller("LugaresController", function ($scope, categoria, lugares) {

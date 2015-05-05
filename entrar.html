@@ -8,23 +8,23 @@
 
             <div class="row">
                 <div class="col l6 offset-l3 m8 offset-m2 s10 offset-s1">
-                    <form id="loginForm" action="" method="POST">
+                    <form id="loginForm" action="#" method="POST">
                         <div class="input-field">
                             <i class="mdi-action-account-circle prefix"></i>
                             <label for="username">Usuário</label>
-                            <input type="text" id="username">
+                            <input type="text" id="username" ng-model="usuario">
                         </div>
                         <div class="input-field">
                             <i class="mdi-action-lock prefix"></i>
                             <label for="password">Senha</label>
-                            <input type="password" id="senha">
+                            <input type="password" id="senha" ng-model="senha">
                         </div>
                     </form>
                 </div>
             </div>
 
             <div class="center-align">
-                <button form="loginForm" class="btn waves-effect waves-light deep-purple lighten-1" type="submit">Entrar</button>
+                <button class="btn waves-effect waves-light deep-purple lighten-1" ng-click="entrar(usuario,senha)" type="submit">Entrar</button>
             </div>
 
         </div>

@@ -9,8 +9,9 @@ trank.config(function ($routeProvider) {
     });
     
     $routeProvider.when("/entrar", {
+        controller: "EntrarController",
         templateUrl: "entrar.html"
-    
+
     });
     
     $routeProvider.when("/cadastro", {
