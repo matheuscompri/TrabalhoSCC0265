@@ -8,26 +8,35 @@
 
             <div class="row">
 
-                <h3>Informações Gerais:</h3>
-                <p><b>Nome: </b>{{lugar.nome}}</p>
-                <p><b>Descrição: </b>{{lugar.descricao}}</p>
-                <p><b>Autor: </b>{{ lugar.autor }}</p>
-                <p><b>Categorias: </b> <span ng-repeat="cat in lugar.categorias">{{ cat }}</span>
-                </p>
-                <p><b>Outras Infor: </b>
-                </p>
-
-                <h3>Comentários</h3>
-                <h3>Avaliar</h3>
                 <h3>Imagens</h3>
                 <div class="slider">
                     <ul class="slides">
                         <li ng-repeat="img in lugar.imagens" slider>
                             <img ng-src="{{ img }}">
                         </li>
-
                     </ul>
                 </div>
+
+                <h3>Informações Gerais:</h3>
+                <p><b>Nome: </b>{{lugar.nome}}</p>
+                <p><b>Descrição: </b>{{lugar.descricao}}</p>
+                <p><b>Autor: </b>{{ lugar.autor }}</p>
+                <p><b>Categorias: </b> <span ng-repeat="cat in lugar.categorias">{{ cat }}</span>
+
+                </p>
+                <p><b>Outras Infor: </b>
+                </p>
+
+                
+                <h3>Comentários</h3>
+                <form action="" ng-submit="salvarComentario()">
+                    <div class="input-field col l12 m12 s12">
+                        <input id="comentario" type="text" class="validate" ng-model="comentario">
+                        <label for="nome">Comentario: </label>
+                    </div>
+                </form>
+
+                <h3>Avaliar</h3>
                 <h3>Exportar</h3>
                 <a>XML</a>
             </div>
@@ -42,6 +51,5 @@
             <a class="btn waves-effect waves-light deep-purple lighten-1" href="cadastro.html">Cadastre-se!</a>
             <br/>
         </div>
-
     </div>
 </div>

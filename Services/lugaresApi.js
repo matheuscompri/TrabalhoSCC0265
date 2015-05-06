@@ -34,6 +34,9 @@ api.factory("lugaresApi", function() {
 			"categorias" : ["america"],
 			"componentes" : [],
 			"data" : new Date(2010, 12, 10),
+            "comentarios" : [{user: "paulo@email.com", comentario: "Muito interessante"}],
+            "rating" : 0,
+            "numeroRating" : 0;
 			"id" : 1
 		},
 		
@@ -199,6 +202,21 @@ api.factory("lugaresApi", function() {
 				return response.data.comments;
 			});
 		},
+        
+        adicionarComentario: function(nome, email, comentario, lugarId){
+            var comment = { 	
+                "nome" : nome,
+                "email" : email,
+                "comentario" : comentario 
+			};
+
+			var lugar = lugares.filter(function(lugar) {
+				return parseInt(lugar.id) === parseInt(lugarId);
+            });
+            
+            if(lugar.length > 0)
+                lugar[0].comentarios.push(coment);
+        }
 
 		login: function(usuario,senha){
 
