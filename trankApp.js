@@ -5,23 +5,23 @@ trank = angular.module("trankApp", ["ngRoute", "lugaresApi"]);
 trank.config(function ($routeProvider) {
     $routeProvider.when("/", {
         controller: "InicioController",
-        templateUrl: "inicio.html"
+        templateUrl: "Pages/inicio.html"
     });
     
     $routeProvider.when("/entrar", {
         controller: "EntrarController",
-        templateUrl: "entrar.html"
+        templateUrl: "Pages/entrar.html"
 
     });
     
     $routeProvider.when("/cadastro", {
         controller: "CadastroController",
-        templateUrl: "cadastro.html"
+        templateUrl: "Pages/cadastro.html"
     });    
 
     $routeProvider.when("/categorias/:catId", {
         controller: "LugaresController",
-        templateUrl: "listaLugares.html",
+        templateUrl: "Pages/listaLugares.html",
         resolve:{
             categoria : function(lugaresApi, $route) {
                 var categoria = $route.current.params.catId;
@@ -36,7 +36,7 @@ trank.config(function ($routeProvider) {
     
     $routeProvider.when("/lugares/:lugarId", {
         controller: "LugarController",
-        templateUrl: "listaLugar.html",
+        templateUrl: "Pages/lugar.html",
         resolve:{
             lugar : function(lugaresApi, $route) {
                 var lugarId = $route.current.params.lugarId;

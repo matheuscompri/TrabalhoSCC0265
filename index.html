@@ -3,8 +3,8 @@
 
 <head>
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="Resources/css/materialize.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="Resources/css/style.css" media="screen,projection" />
 
     <meta charset="UTF-8" />
 
@@ -26,13 +26,13 @@
                         <div id="login_cadastro" class="hide-on-med-and-down right">
 
                             <div ng-hide="usuario">
-                            <a class="waves-effect waves-light btn deep-purple" href="#/entrar">Login</a>
-                            <a class="waves-effect waves-light btn deep-purple" href="#/cadastro">Cadastro</a>
+                                <a class="waves-effect waves-light btn deep-purple" href="#/entrar">Login</a>
+                                <a class="waves-effect waves-light btn deep-purple" href="#/cadastro">Cadastro</a>
                             </div>
 
                             <div ng-show="usuario">
-                            <a class="btn disabled deep-purple white-text">Bem Vindo, {{ usuario.nome }}</a>
-                            <a class="btn deep-purple white-text" ng-click="sair(); usuario = false;">Sair</a>
+                                <a class="btn disabled deep-purple white-text">Bem Vindo, {{ usuario.nome }}</a>
+                                <a class="btn deep-purple white-text" ng-click="sair(); usuario = false;">Sair</a>
                             </div>
 
                         </div>
@@ -75,7 +75,7 @@
                     <li><a href="#/">Início</a>
                     </li>
                     <li ng-repeat="c in categorias">
-                            <a ng-href="#/categorias/{{ c.id }}">{{ c.nome }}</a>
+                        <a ng-href="#/categorias/{{ c.id }}">{{ c.nome }}</a>
                     </li>
                 </ul>
                 <!-- Navbar collapsed links -->
@@ -89,7 +89,7 @@
                     </li>
                     <li class="divider"></li>
                     <li ng-repeat="c in categorias">
-                            <a ng-href="#/categorias/{{ c.id }}">{{ c.nome }}</a>
+                        <a ng-href="#/categorias/{{ c.id }}">{{ c.nome }}</a>
                     </li>
                 </ul>
             </div>
@@ -153,16 +153,32 @@
             </div>
         </div>
     </footer>
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="static/angular-1.3.15/angular.min.js"></script>
-    <script type="text/javascript" src="static/angular-1.3.15/angular-route.min.js"></script>
-    <script type="text/javascript" src="js/jquery-2.1.3.js"></script>
-    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/trank.js"></script>
-    <script type="text/javascript" src="js/lugaresApi.js"></script>
-    <script type="text/javascript" src="js/controllers.js"></script>
+
+    <!-- Importing Resource Files -->
+    <script type="text/javascript" src="Resources/js/date.js"></script>
+    <script type="text/javascript" src="Resources/js/jquery-2.1.3.js"></script>
+    <script type="text/javascript" src="Resources/js/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="Resources/js/materialize.js"></script>
+    <script type="text/javascript" src="Resources/js/angular-1.3.15/angular.js"></script>
+    <script type="text/javascript" src="Resources/js/angular-1.3.15/angular-route.js"></script>
+
+    <!-- Importing App Files -->
+    <script type="text/javascript" src="trankApp.js"></script>
+
+    <!-- Controllers -->
+    <script type="text/javascript" src="Controllers/CadastroController.js"></script>
+    <script type="text/javascript" src="Controllers/EntrarController.js"></script>
+    <script type="text/javascript" src="Controllers/InicioController.js"></script>
+    <script type="text/javascript" src="Controllers/LugarController.js"></script>
+    <script type="text/javascript" src="Controllers/LugaresController.js"></script>
+    <script type="text/javascript" src="Controllers/MenuController.js"></script>
+
+    <!-- Directives -->
+    <script type="text/javascript" src="Directives/SliderDirective.js"></script>
+    
+    <!-- Services -->
+    <script type="text/javascript" src="Services/lugaresApi.js"></script>
+
 
 </body>
 

@@ -1,0 +1,48 @@
+<div class="row card transparent-white main-card">
+    <div class="col l9 m9 s12 right-border">
+
+        <div class="card-title deep-purple-text center-align">
+            <h2>Lugares da Categoria {{ categoria.nome }} </h2>
+        </div>
+        <div class="card-content">
+
+            <ul>
+                <li ng-repeat="lugar in lugares">
+                    <div class="row">
+                        <div class="col s12 m12 l6">
+                            <a ng-href="#/lugares/{{lugar.id}}">
+                                <img ng-src="{{ lugar.imagens[0] }}" class="responsive-img">
+                            </a>
+                        </div>
+                        <div class="col s12 m12 l6">
+                            <h3><a ng-href="#/lugares/{{lugar.id}}">{{lugar.nome}}</a></h3>
+                            <p><b>Descrição: </b>{{lugar.descricao}}</p>
+                            <p><b>Outras informações: </b>?</p>
+                            <p><b>Avaliação: </b><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i>
+                            </p>
+                            <p><b>Quantidade de Avaliadores: </b>
+                            </p>
+                            <p><b>Comparação com Outros X: </b>
+                            </p>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="divider"></div>
+                    <br />
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="col l3 m3 s12 sidebar center-align">
+        <div class="card-content">
+            <br/>
+            <h5 class="deep-purple-text ">É novo por aqui?</h5>
+            <a class="btn waves-effect waves-light deep-purple lighten-1" href="cadastro.html">Cadastre-se!</a>
+            <br/>
+        </div>
+
+    </div>
+</div>
