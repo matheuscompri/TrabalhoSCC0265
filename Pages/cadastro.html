@@ -71,9 +71,10 @@
                             <span  class="in_erro" ng-show="pattern(cadUsuario.email);">Email inválido</span>
                         </div>
                         <div class="input-field col l6 m6 s12">
-                            <input id="senha" type="password" ng-model="senha" required name="senha" ng-class="{invalid : campoVazio(cadUsuario.senha)}">
+                            <input id="senha" type="password" ng-model="senha" required name="senha" ng-class="{invalid : campoVazio(cadUsuario.senha) || senhaInvalida(cadUsuario.senha)}">
                             <label for="senha">Senha</label>
                             <span  class="in_erro" ng-show="campoVazio(cadUsuario.senha);">Campo obrigatório</span>
+                            <span  class="in_erro" ng-show="senhaInvalida(cadUsuario.senha);">{{ senha_invalida_erro }}</span>
                         </div>
                         <div class="input-field col l6 m6 s12">
                             <input id="conf_senha" type="password" ng-model="confirmar_senha" required name="confirmar_senha" ng-class="{invalid : campoVazio(cadUsuario.confirmar_senha) || senhaDiferente(cadUsuario.senha,cadUsuario.confirmar_senha)}">

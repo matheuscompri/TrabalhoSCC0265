@@ -27,7 +27,20 @@
         }
 
         $scope.senhaInvalida = function(field){
-            return (field.$error.pattern && field.$dirty);
+            var senha = field.$modelValue;
+            var invalid = false;
+            if (senha){
+
+                if ( senha.length < 8){
+                    $scope.senha_invalida_erro = "A senha deve ter pelo menos 8 caracteres";
+                    invalid = true;
+                }else if(!is_password_valid(senha)){
+                    $scope.senha_invalida_erro = "A senha deve ter pelo menos 1 letra maiúscula, 1 caractere especial, 1 digito e 1 letra minúscula";
+                    invalid = true;
+                }
+            }
+
+            return (invalid && field.$dirty);
         }
 
         $scope.senhaDiferente = function(field1,field2){
@@ -126,6 +139,39 @@
     }
 
 
+    function is_password_valid(password){
+        var specialChars = /[\!\@\#\$\%\*?\,\;\.]/;
+        var specCharList = [];
+        var hasSpecialChar = false;
+
+        var capitalLetters = /[A-Z]/;
+        var hasCapital = false;
+
+        var letters = /[a-z]/;
+        var hasLetter = false;
+
+        var numbers = /[0-9]/;
+        var hasNumber = false;
+
+        // Checking all the chars of the password
+        for (var i = 0; i <= password.length; i++) {
+            if (specialChars.test(password[i])) {
+                // The password has a special character
+                hasSpecialChar = true;
+            } else if (capitalLetters.test(password[i])) {
+                // The password has a capital letter
+                hasCapital = true;
+            } else if (numbers.test(password[i])) {
+                // The password has a number
+                hasNumber = true;
+            } else if (letters.test(password[i])) {
+                // The password has a regular letter
+                hasLetter = true;
+            }
+        }
+
+        return hasSpecialChar && hasCapital && hasNumber && hasLetter;
+    }
 
     // Funcao q verifica o e-mail
     function is_email(email) {
