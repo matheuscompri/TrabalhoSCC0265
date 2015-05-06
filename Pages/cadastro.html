@@ -65,10 +65,11 @@
                             <span  class="in_erro" ng-show="campoVazio(cadUsuario.telefone);">Campo obrigatório</span>
                         </div>
                         <div class="input-field col s12">
-                            <input id="email" type="email" name="email" ng-class="{invalid : campoVazio(cadUsuario.email) || pattern(cadUsuario.email)}" ng-model="email" required ng-pattern="/^[a-z](([a-z0-9.])*[^.])?@[a-z0-9]+([.][a-z]+)+$/" >
+                            <input id="email" type="email" name="email" ng-class="{invalid : campoVazio(cadUsuario.email) || pattern(cadUsuario.email) || emailJaExiste(cadUsuario.email)}" ng-model="email" required ng-pattern="/^[a-z](([a-z0-9.])*[^.])?@[a-z0-9]+([.][a-z]+)+$/" >
                             <label for="email">Email</label>
                             <span  class="in_erro" ng-show="campoVazio(cadUsuario.email);">Campo obrigatório</span>
                             <span  class="in_erro" ng-show="pattern(cadUsuario.email);">Email inválido</span>
+                            <span  class="in_erro" ng-show="emailJaExiste(cadUsuario.email);">Email já cadastrado!</span>
                         </div>
                         <div class="input-field col l6 m6 s12">
                             <input id="senha" type="password" ng-model="senha" required name="senha" ng-class="{invalid : campoVazio(cadUsuario.senha) || senhaInvalida(cadUsuario.senha)}">
@@ -98,3 +99,6 @@
         <a class="btn waves-effect waves-light deep-purple lighten-1" href="login.html">Entrar</a>
     </div>
 </div>
+
+    <link type="text/css" rel="stylesheet" href="Resources/css/jquery-ui.min.css" media="screen,projection" />
+    <script type="text/javascript" src="Resources/js/jquery-ui.min.js"></script>

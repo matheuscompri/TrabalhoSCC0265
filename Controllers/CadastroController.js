@@ -13,6 +13,15 @@
             return (field.$error.pattern && field.$dirty);
         }
 
+        $scope.emailJaExiste = function(field){
+            var email = field.$modelValue;
+            if (email){
+                return lugaresApi.emailJaExiste(email);
+            }else{
+                return false;
+            }
+        }
+
         $scope.dataInvalida = function(field){
             var valid = true;
             var data_nascimento = field.$modelValue;
@@ -58,6 +67,9 @@
                 valid = false;
 
             if ($scope.senhaInvalida($scope.cadUsuario.senha))
+                valid = false;
+
+            if ($scope.emailJaExiste($scope.cadUsuario.email))
                 valid = false;
 
             if (!valid) {
@@ -137,6 +149,12 @@
                 Materialize.toast('Caractere \'' + error.v + '\' Inválido para o Telefone!', 4000, 'rounded red darken-4 left');
             }
         });
+
+        /*$("#datepicker" ).datepicker({
+          changeMonth: true,
+          changeYear: true,
+          dateFormat: "dd/mm/yy"
+        });*/
 
         
     }

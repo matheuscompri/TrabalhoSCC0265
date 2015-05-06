@@ -36,7 +36,7 @@ api.factory("lugaresApi", function() {
 			"data" : new Date(2010, 12, 10),
             "comentarios" : [{user: "paulo@email.com", comentario: "Muito interessante"}],
             "rating" : 0,
-            "numeroRating" : 0;
+            "numeroRating" : 0,
 			"id" : 1
 		},
 		
@@ -216,7 +216,7 @@ api.factory("lugaresApi", function() {
             
             if(lugar.length > 0)
                 lugar[0].comentarios.push(coment);
-        }
+        },
 
 		login: function(usuario,senha){
 
@@ -226,6 +226,21 @@ api.factory("lugaresApi", function() {
 
 			if (u.length > 0){
 				return u[0];
+			}else{
+				return false;
+			}
+
+		},
+
+
+		emailJaExiste: function(email){
+
+			var u = usuarios.filter(function(u){
+				return u.email.toLowerCase() === email.toLowerCase();
+			});
+
+			if (u.length > 0){
+				return true;
 			}else{
 				return false;
 			}
