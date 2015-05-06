@@ -10,10 +10,8 @@
             var valid = true;
 
             if (!data_nascimento || data_nascimento.length !== 10){
-                console.log('a');
                 valid = false;
             }else{
-                console.log('a');
                 var data_nasc = new Date(data_nascimento.substr(6, 4),data_nascimento.substr(3, 2) - 1,data_nascimento.substr(0, 2));
 
                 if (data_nasc > new Date().addYears(-13)) {
@@ -23,6 +21,18 @@
                 } else {
                     $('#data_nasc').removeClass("invalid");
                 }
+            }
+
+            if (!nome || nome.length === 0){
+                valid = false;
+            }else if (!estado || estado.length === 0){
+                valid = false;
+            }else if (!cidade || cidade.length === 0){
+                valid = false;
+            }else if (!telefone || telefone.length === 0){
+                valid = false;
+            }else if (!senha || senha.length === 0){
+                valid = false;
             }
 
             if (!valid) {
