@@ -135,3 +135,30 @@ input{
 -moz-border-radius: 10px;
 border-radius: 10px;
 }
+
+
+
+/* Datepicker */
+.picker__date-display{
+    background-color: #5e35b1;
+}
+
+.picker__weekday-display{
+    background-color: rgba(58, 34, 124, 1); 
+}
+
+.picker__close, .picker__today{
+    color: #5e35b1;
+}
+
+.picker__day.picker__day--today{
+    color: #5e35b1;
+}
+
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected{
+    background-color: #5e35b1;
+}
+
+.picker__nav--prev:hover, .picker__nav--next:hover{
+    background-color: #a77af7;
+}
