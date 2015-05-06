@@ -1,6 +1,6 @@
     var trank = angular.module("trankApp");
 
-    trank.controller("CadastroController", function ($scope, lugaresApi) {
+    trank.controller("CadastroController", function ($rootScope, $scope, lugaresApi, $location) {
         $scope.$on("$viewContentLoaded", function () {
             initCadastro()
         });
@@ -8,9 +8,6 @@
         $scope.cadastrar = function(nome,data_nascimento,estado,cidade,telefone,email,senha){
 
             var valid = true;
-
-            console.log(data_nascimento);
-            console.log($scope.data_nascimento);
 
             if (!data_nascimento || data_nascimento.length !== 10){
                 console.log('a');
@@ -34,7 +31,14 @@
             }else{
                 alert("Deu bom");
                 lugaresApi.novoUsuario(nome,data_nascimento,estado,cidade,telefone,email,senha);
-                alert(lugaresApi.lugares);
+
+                var u = lugaresApi.login(email,senha); 
+                if(u){  
+                    $rootScope.usuario = u;
+                    $location.path( "/" );
+                }else{
+                    $rootScope.usuario = false;
+                }
             }
         }
     });
