@@ -7,22 +7,25 @@
         <div class="card-content">
 
             <div class="row">
-                <form id="registerForm" class="col s12" ng-submit="cadastrar(nome,data_nascimento,estado,cidade,telefone,email,senha);">
+                <form id="registerForm" name="cadUsuario" class="col s12" ng-submit="cadastrar(nome,data_nascimento,estado,cidade,telefone,email,senha,confirmar_senha);" novalidate>
                     <div class="row">
                         <div class="input-field col l12 m12 s12">
-                            <input id="nome" type="text" class="validate" ng-model="nome">
+                            <input id="nome" type="text" ng-class="{invalid : campoVazio(cadUsuario.nome)}" ng-model="nome" required name="nome">
                             <label for="nome">Nome Completo</label>
+                            <span class="in_erro" ng-show="campoVazio(cadUsuario.nome);">Campo obrigatório</span>
                         </div>
                         <div class="input-field col l6 m6 s12">
-                            <input id="data_nasc" placeholder="DD/MM/AAAA" type="text" class="validate" ng-model="data_nascimento">
+                            <input id="data_nasc" placeholder="DD/MM/AAAA" type="text"  ng-class="{invalid : campoVazio(cadUsuario.data_nascimento)}" ng-model="data_nascimento" required name="data_nascimento">
                             <label for="data_nasc">Data de Nascimento</label>
+                            <span class="in_erro"  ng-show="campoVazio(cadUsuario.data_nascimento);">Campo obrigatório</span>
                         </div>
                         <div class="input-field col l6 m6 s12">
-                            <input id="cidade" type="text" class="validate" ng-model="cidade">
+                            <input id="cidade" type="text"  ng-class="{invalid : campoVazio(cadUsuario.cidade)}" ng-model="cidade" required name="cidade">
                             <label for="cidade">Cidade</label>
+                            <span  class="in_erro" ng-show="campoVazio(cadUsuario.cidade);">Campo obrigatório</span>
                         </div>
                         <div class="input-field col l6 m6 s12">
-                            <select ng-model="estado">
+                            <select ng-model="estado" required name="estado"  ng-class="{invalid : campoVazio(cadUsuario.estado)}" >
                                 <option value="" disabled selected>Escolha um Estado</option>
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
@@ -53,22 +56,29 @@
                                 <option value="TO">Tocantins</option>
                             </select>
                             <label>Estado</label>
+                            <span  class="in_erro" ng-show="campoVazio(cadUsuario.estado);">Campo obrigatório</span>
                         </div>
                         <div class="input-field col l6 m6 s12">
-                            <input id="telefone" placeholder="(XX) XXXX-XXXX" type="text" class="validate" ng-model="telefone">
+                            <input id="telefone" placeholder="(XX) XXXX-XXXX" type="text" ng-model="telefone" required name="telefone" ng-class="{invalid : campoVazio(cadUsuario.telefone)}" >
                             <label for="telefone">Telefone</label>
+                            <span  class="in_erro" ng-show="campoVazio(cadUsuario.telefone);">Campo obrigatório</span>
                         </div>
                         <div class="input-field col s12">
-                            <input id="email" type="email" class="validate" ng-model="email">
+                            <input id="email" type="email" name="email" ng-class="{invalid : campoVazio(cadUsuario.email) || pattern(cadUsuario.email)}" ng-model="email" required ng-pattern="/^[a-z](([a-z0-9.])*[^.])?@[a-z0-9]+([.][a-z]+)+$/" >
                             <label for="email">Email</label>
+                            <span  class="in_erro" ng-show="campoVazio(cadUsuario.email);">Campo obrigatório</span>
+                            <span  class="in_erro" ng-show="pattern(cadUsuario.email);">Email inválido</span>
                         </div>
                         <div class="input-field col l6 m6 s12">
-                            <input id="senha" type="password" ng-model="senha">
+                            <input id="senha" type="password" ng-model="senha" required name="senha" ng-class="{invalid : campoVazio(cadUsuario.senha)}">
                             <label for="senha">Senha</label>
+                            <span  class="in_erro" ng-show="campoVazio(cadUsuario.senha);">Campo obrigatório</span>
                         </div>
                         <div class="input-field col l6 m6 s12">
-                            <input id="conf_senha" type="password" ng-model="confirmar_senha">
+                            <input id="conf_senha" type="password" ng-model="confirmar_senha" required name="confirmar_senha" ng-class="{invalid : campoVazio(cadUsuario.confirmar_senha) || senhaDiferente(cadUsuario.senha,cadUsuario.confirmar_senha)}">
                             <label for="conf_senha">Confirmar Senha</label>
+                            <span  class="in_erro" ng-show="campoVazio(cadUsuario.confirmar_senha);">Campo obrigatório</span>
+                            <span  class="in_erro" ng-show="senhaDiferente(cadUsuario.senha,cadUsuario.confirmar_senha);">As senhas devem ser iguais</span>
                         </div>
                     </div>
                 </form>

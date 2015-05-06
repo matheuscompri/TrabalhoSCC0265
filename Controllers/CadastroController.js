@@ -5,9 +5,27 @@
             initCadastro()
         });
 
-        $scope.cadastrar = function(nome,data_nascimento,estado,cidade,telefone,email,senha){
+        $scope.campoVazio = function(field){
+            return (field.$error.required && field.$dirty);
+        }
 
-            var valid = true;
+        $scope.pattern = function(field){
+            return (field.$error.pattern && field.$dirty);
+        }
+
+        $scope.senhaInvalida = function(field){
+            return (field.$error.pattern && field.$dirty);
+        }
+
+        $scope.senhaDiferente = function(field1,field2){
+            console.log(field1);
+            console.log(field2);
+            return (field1.$modelValue !== field2.$modelValue) && (field1.$dirty) && field2.$dirty;
+        }
+
+        $scope.cadastrar = function(nome,data_nascimento,estado,cidade,telefone,email,senha,confirmar_senha){
+
+            var valid = $scope.cadUsuario.$valid;
 
             if (!data_nascimento || data_nascimento.length !== 10){
                 valid = false;
@@ -23,15 +41,7 @@
                 }
             }
 
-            if (!nome || nome.length === 0){
-                valid = false;
-            }else if (!estado || estado.length === 0){
-                valid = false;
-            }else if (!cidade || cidade.length === 0){
-                valid = false;
-            }else if (!telefone || telefone.length === 0){
-                valid = false;
-            }else if (!senha || senha.length === 0){
+            if (confirmar_senha !== senha){
                 valid = false;
             }
 
@@ -110,53 +120,7 @@
             }
         });
 
-        $('#email').focusout(function () {
-            // Verificando se o email esta vazia
-            if ($('#email').val().trim() === '') {
-                Materialize.toast('E-Mail deve ser preenchido', 4000, 'rounded red darken-4 left');
-                $('#email').addClass("invalid");
-            } else {
-                $('#email').removeClass("invalid");
-            }
-
-            // Verificando o email
-            if (is_email($('#email').val()) === false) {
-                Materialize.toast('E-Mail inválido', 4000, 'rounded red darken-4 left');
-                $('#email').addClass("invalid");
-            } else {
-                $('#email').removeClass("invalid");
-            }
-        });
-
-        $('#senha').focusout(function () {
-            // Verificando se a senha esta vazia
-            if ($('#senha').val().trim() === '') {
-                Materialize.toast('A Senha é obrigatoria', 4000, 'rounded red darken-4 left');
-                $('#senha').addClass("invalid");
-            } else {
-                $('#senha').removeClass("invalid");
-            }
-        });
-
-        $('#conf_senha').focusout(function () {
-            // Verificando se a confirmacao de senha esta vazia
-            if ($('#conf_senha').val().trim() === '') {
-                Materialize.toast('Confirme sua senha', 4000, 'rounded red darken-4 left');
-                $('#conf_senha').addClass("invalid");
-            } else {
-                $('#conf_senha').removeClass("invalid");
-            }
-
-            // Verificando se as senhas sao diferentes
-            if ($('#conf_senha').val() !== $('#senha').val()) {
-                Materialize.toast('Senhas diferentes', 4000, 'rounded red darken-4 left');
-                $('#senha').addClass("invalid");
-                $('#conf_senha').addClass("invalid");
-            } else {
-                $('#senha').removeClass("invalid");
-                $('#conf_senha').removeClass("invalid");
-            }
-        });
+        
     }
 
 
