@@ -7,22 +7,22 @@
         <div class="card-content">
 
             <div class="row">
-                <form id="registerForm" class="col s12">
+                <form id="registerForm" class="col s12" ng-submit="cadastrar(nome,data_nascimento,estado,cidade,telefone,email,senha);">
                     <div class="row">
                         <div class="input-field col l12 m12 s12">
-                            <input id="nome" type="text" class="validate">
+                            <input id="nome" type="text" class="validate" ng-model="nome">
                             <label for="nome">Nome Completo</label>
                         </div>
                         <div class="input-field col l6 m6 s12">
-                            <input id="data_nasc" placeholder="DD/MM/AAAA" type="text" class="validate">
+                            <input id="data_nasc" placeholder="DD/MM/AAAA" type="text" class="validate" ng-model="data_nascimento">
                             <label for="data_nasc">Data de Nascimento</label>
                         </div>
                         <div class="input-field col l6 m6 s12">
-                            <input id="cidade" type="text" class="validate">
+                            <input id="cidade" type="text" class="validate" ng-model="cidade">
                             <label for="cidade">Cidade</label>
                         </div>
                         <div class="input-field col l6 m6 s12">
-                            <select>
+                            <select ng-model="estado">
                                 <option value="" disabled selected>Escolha um Estado</option>
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
@@ -55,26 +55,26 @@
                             <label>Estado</label>
                         </div>
                         <div class="input-field col l6 m6 s12">
-                            <input id="telefone" placeholder="(XX) XXXX-XXXX" type="text" class="validate">
+                            <input id="telefone" placeholder="(XX) XXXX-XXXX" type="text" class="validate" ng-model="telefone">
                             <label for="telefone">Telefone</label>
                         </div>
                         <div class="input-field col s12">
-                            <input id="email" type="email" class="validate">
+                            <input id="email" type="email" class="validate" ng-model="email">
                             <label for="email">Email</label>
                         </div>
                         <div class="input-field col l6 m6 s12">
-                            <input id="senha" type="password">
+                            <input id="senha" type="password" ng-model="senha">
                             <label for="senha">Senha</label>
                         </div>
                         <div class="input-field col l6 m6 s12">
-                            <input id="conf_senha" type="password">
+                            <input id="conf_senha" type="password" ng-model="confirmar_senha">
                             <label for="conf_senha">Confirmar Senha</label>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="center-align">
-                <button form="registerForm" class="btn waves-effect waves-light deep-purple lighten-1" type="submit">Submeter
+                <button form="registerForm"  class="btn waves-effect waves-light deep-purple lighten-1" type="submit">Submeter
                 </button>
             </div>
         </div>

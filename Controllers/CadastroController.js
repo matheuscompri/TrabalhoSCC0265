@@ -1,9 +1,42 @@
     var trank = angular.module("trankApp");
 
-    trank.controller("CadastroController", function ($scope) {
+    trank.controller("CadastroController", function ($scope, lugaresApi) {
         $scope.$on("$viewContentLoaded", function () {
             initCadastro()
         });
+
+        $scope.cadastrar = function(nome,data_nascimento,estado,cidade,telefone,email,senha){
+
+            var valid = true;
+
+            console.log(data_nascimento);
+            console.log($scope.data_nascimento);
+
+            if (!data_nascimento || data_nascimento.length !== 10){
+                console.log('a');
+                valid = false;
+            }else{
+                console.log('a');
+                var data_nasc = new Date(data_nascimento.substr(6, 4),data_nascimento.substr(3, 2) - 1,data_nascimento.substr(0, 2));
+
+                if (data_nasc > new Date().addYears(-13)) {
+                    valid = false;
+                    Materialize.toast('Você precisa ter mais de 13 anos para poder utilizar o site', 4000, 'rounded red darken-4 left');
+                    $('#data_nasc').addClass("invalid");
+                } else {
+                    $('#data_nasc').removeClass("invalid");
+                }
+            }
+
+            if (!valid) {
+                //Deu ruim
+                alert("Deu ruim");
+            }else{
+                alert("Deu bom");
+                lugaresApi.novoUsuario(nome,data_nascimento,estado,cidade,telefone,email,senha);
+                alert(lugaresApi.lugares);
+            }
+        }
     });
 
     function initCadastro() {
@@ -108,24 +141,6 @@
             } else {
                 $('#senha').removeClass("invalid");
                 $('#conf_senha').removeClass("invalid");
-            }
-        });
-
-        $('#registerForm').submit(function () {
-            var valid = true;
-            var stringDate = $('#data_nasc').val();
-            var data_nasc = new Date(stringDate.substr(6, 4), stringDate.substr(3, 2) - 1, stringDate.substr(0, 2));
-
-            if (data_nasc > new Date().addYears(-13)) {
-                valid = false;
-                Materialize.toast('Você precisa ter mais de 13 anos para poder utilizar o site', 4000, 'rounded red darken-4 left');
-                $('#data_nasc').addClass("invalid");
-            } else {
-                $('#data_nasc').removeClass("invalid");
-            }
-
-            if (!valid) {
-                event.preventDefault();
             }
         });
     }

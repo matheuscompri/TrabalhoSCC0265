@@ -1,6 +1,6 @@
     var trank = angular.module("trankApp");
 
-    trank.controller("EntrarController", function ($rootScope, $scope, lugaresApi) {
+    trank.controller("EntrarController", function ($rootScope, $scope, $location, lugaresApi) {
         $scope.usuario = "";
         $scope.senha = "";
 
@@ -8,6 +8,7 @@
             var u = lugaresApi.login(usuario,senha); 
             if(u){  
                 $rootScope.usuario = u;
+                $location.path( "/" );
             }else{
                 $rootScope.usuario = false;
             }
