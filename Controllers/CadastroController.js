@@ -57,6 +57,9 @@
             if ($scope.senhaDiferente($scope.cadUsuario.senha,$scope.cadUsuario.confirmar_senha))
                 valid = false;
 
+            if ($scope.senhaInvalida($scope.cadUsuario.senha))
+                valid = false;
+
             if (!valid) {
                 //Deu ruim
                 for (var i=0; i< $scope.cadUsuario.$error.required.length; i++){
