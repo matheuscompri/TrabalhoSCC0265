@@ -299,25 +299,25 @@ api.factory("lugaresApi", function () {
                 console.log("ranking: " + lugar_avaliado[0].ranking);
                 console.log("voto: " + voto);
 
-                lugar_avaliado[0].ranking = ((parseInt(lugar_avaliado[0].numeroVotos) - 1)*parseFloat(lugar_avaliado[0].ranking) + parseInt(voto)) / (lugar_avaliado[0].numeroVotos);
+                lugar_avaliado[0].ranking = ((parseInt(lugar_avaliado[0].numeroVotos) - 1) * parseFloat(lugar_avaliado[0].ranking) + parseInt(voto)) / (lugar_avaliado[0].numeroVotos);
                 console.log("avaliacao: " + lugar_avaliado[0].ranking);
 
             }
         },
-        
-        emailJaExiste: function(email){
 
-			var u = usuarios.filter(function(u){
-				return u.email.toLowerCase() === email.toLowerCase();
-			});
+        emailJaExiste: function (email) {
 
-			if (u.length > 0){
-				return true;
-			}else{
-				return false;
-			}
+            var u = usuarios.filter(function (u) {
+                return u.email.toLowerCase() === email.toLowerCase();
+            });
 
-		},
+            if (u.length > 0) {
+                return true;
+            } else {
+                return false;
+            }
+
+        },
 
         login: function (usuario, senha) {
 
@@ -345,6 +345,29 @@ api.factory("lugaresApi", function () {
             };
 
             usuarios.push(u);
+        },
+
+        adicionarLugar: function (nome, autor, descricao, imagem, categoria, componentes) {
+            // Calculando o id do novo elemento
+            var id = lugares[lugares.length - 1].id;
+            
+            // Criando o novo objeto
+            var lugar = {
+                    "nome": nome,
+                    "autor": autor,
+                    "descricao": descricao,
+                    "imagens": imagem,
+                    "categorias": categoria,
+                    "componentes": componentes,
+                    "comentarios": [],
+                    "data": new Date(),
+                    "ranking": 1,
+                    "numeroVotos": 0,
+                    "id": ++id
+                };
+            
+            lugares.push(lugar);
+                
         },
     }
 });

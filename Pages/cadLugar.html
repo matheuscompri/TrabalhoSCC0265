@@ -30,25 +30,27 @@
 
                         <div class="input-field col l4 m6 s12">
                             <p>
-                                <input type="checkbox" id="america" />
+                                <input type="checkbox" id="america" ng-model="caLugar.categorias['america']" />
                                 <label for="america">America</label>
                             </p>
                         </div>
                         <div class="input-field col l4 m6 s12">
                             <p>
-                                <input type="checkbox" id="asia" />
+                                <input type="checkbox" id="asia" ng-model="caLugar.categorias['asia']" />
                                 <label for="asia">Ásia</label>
                             </p>
                         </div>
 
                         <div class="input-field col l4 m6 s12">
                             <p>
-                                <input type="checkbox" id="europa" />
+                                <input type="checkbox" id="europa" ng-model="caLugar.categorias['europa']" />
                                 <label for="europa">Europa</label>
                             </p>
                             <br />
                             <br />
                         </div>
+                        <span class="in_erro" ng-show="!algumSelecionado(caLugar.categorias)">Selecione ao menos uma categoria</span>
+
 
                         <div class="input-field col l12 m12 s12">
                             <h4 class="deep-purple-text">Fotos</h4>
@@ -57,7 +59,7 @@
                         <div class="input-field col l12 m12 s12">
 
                             <div id="div_foto-0" class="file-field input-field">
-                                <input class="file-path validate" type="text" />
+                                <input class="file-path validate" type="text" ng-model="imagem" required/>
                                 <div class="btn waves-effect waves-light deep-purple lighten-2">
                                     <span class="mdi-file-cloud-upload file_icon"></span>
                                     <input id="foto_0" type="file" />
@@ -76,11 +78,11 @@
                         </div>
 
                         <div class="input-field col l6 m6 s12">
-                            <input id="campo_nome-0" name="campo_nome0" type="text" class="validate">
+                            <input id="campo_nome-0" name="campo_nome0" type="text" ng-model="componentes" required>
                             <label for="campo_nome-0">Nome do campo</label>
                         </div>
                         <div class="input-field col l6 m6 s12">
-                            <input id="campo_valor-0" name="campo_valor0" type="text" class="validate">
+                            <input id="campo_valor-0" name="campo_valor0" type="text" required>
                             <label for="campo_valor-0">Valor do campo</label>
                         </div>
 
@@ -96,8 +98,7 @@
                 </form>
             </div>
             <div class="center-align">
-                <button form="registerForm" class="btn waves-effect waves-light deep-purple lighten-1" type="submit">Submeter
-                </button>
+                <input ng-click="cadastrar(nomeLugar, user.email, descricao, imagem, categoria, componentes)" type="submit" form="registerForm" class="btn waves-effect waves-light deep-purple lighten-1" type="submit">
             </div>
         </div>
     </div>
