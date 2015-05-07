@@ -345,7 +345,6 @@ api.factory("lugaresApi", function () {
             };
 
             usuarios.push(u);
-
         },
     }
 });

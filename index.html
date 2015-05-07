@@ -16,7 +16,7 @@
 <body ng-app="trankApp">
     <!-- Header and Search -->
     <header>
-        <div class="deep-purple lighten-5 cabecalho">
+        <div class="deep-purple lighten-5 cabecalho" ng-controller="MenuController">
             <div class="container">
                 <div class="row">
                     <div class="col s12">
@@ -32,7 +32,7 @@
 
                             <div ng-show="usuario">
                                 <a class="btn disabled deep-purple white-text">Bem Vindo, {{ usuario.nome }}</a>
-                                <a class="btn deep-purple white-text" ng-click="sair(); usuario = false;">Sair</a>
+                                <a class="btn deep-purple white-text" ng-click="sair()">Sair</a>
                             </div>
 
                         </div>

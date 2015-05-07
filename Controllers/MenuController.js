@@ -11,5 +11,11 @@
         $scope.$watch('usuario',function(u){
             $rootScope.usuario = u;
         });
+        
+        $scope.sair = function()
+        {
+            $rootScope.usuario = false;
+            $scope.usuario = false;
+        }
 
     });

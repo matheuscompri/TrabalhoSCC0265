@@ -7,6 +7,7 @@
 
         $scope.salvarComentario = function (username, comentario, lugarId) {
             lugaresApi.adicionarComentario(username, comentario, lugarId);
+            $scope.comentario = "";
         }
         
         $scope.enviarAvaliacao = function(voto, lugarId) {
