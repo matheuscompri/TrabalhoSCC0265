@@ -65,28 +65,24 @@
                         <div class="card-title">Avaliação: {{lugar.ranking | number:1}} Estrelas</div>
                         <form action="">
                             <p>
-                                <input value="0" name="ranking" type="radio" id="r0" ng-model="avaliacao" />
-                                <label for="r0">Zero Estrelas</label>
-                            </p>
-                            <p>
                                 <input value="1" name="ranking" type="radio" id="r1" ng-model="avaliacao" />
-                                <label for="r1">Um Estrela</label>
+                                <label for="r1"><i class="mdi-action-grade"></i></label>
                             </p>
                             <p>
                                 <input value="2" name="ranking" type="radio" id="r2" ng-model="avaliacao" />
-                                <label for="r2">Duas Estrelas</label>
+                                <label for="r2"><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i></label>
                             </p>
                             <p>
                                 <input value="3" name="ranking" type="radio" id="r3" ng-model="avaliacao" />
-                                <label for="r3">Três Estrelas</label>
+                                <label for="r3"><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i></label>
                             </p>
                             <p>
                                 <input value="4" name="ranking" type="radio" id="r4" ng-model="avaliacao" />
-                                <label for="r4">Quatro Estrelas</label>
+                                <label for="r4"><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i></label>
                             </p>
                             <p>
                                 <input value="5" name="ranking" type="radio" id="r5" ng-model="avaliacao" />
-                                <label for="r5">Cinco Estrelas</label>
+                                <label for="r5"><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i></label>
                             </p>
                             <div class="center-align">
                                 <input type="button" value="Enviar Avaliação!" class="btn waves-effect waves-light deep-purple lighten-1" ng-click="enviarAvaliacao(avaliacao, lugar.id)">
