@@ -1,0 +1,108 @@
+<div class="row card transparent-white main-card">
+    <div class="col l9 m9 s12 right-border">
+
+        <div class="card-title deep-purple-text center-align">
+            <h2>Novo Lugar</h2>
+        </div>
+        <div class="card-content">
+
+            <div class="row">
+                <form id="registerForm" class="col s12">
+                    <div class="row">
+                        <div class="input-field col l12 m12 s12">
+                            <input id="nome_autor" type="text" class="validate">
+                            <label for="nome_autor">Nome do autor</label>
+                        </div>
+                        <div class="input-field col l12 m12 s12">
+                            <input id="nome_lugar" type="text" class="validate">
+                            <label for="nome_lugar">Nome do lugar</label>
+                        </div>
+                        <div class="input-field col l12 m12 s12">
+                            <input id="descricao" type="text" class="validate">
+                            <label for="descricao">Descrição</label>
+                        </div>
+
+                        <div class="input-field col l12 m12 s12">
+                            <h4 class="deep-purple-text">Categorias</h4>
+                        </div>
+
+                        <div class="input-field col l4 m6 s12">
+                            <p>
+                                <input type="checkbox" id="america" />
+                                <label for="america">America</label>
+                            </p>
+                        </div>
+                        <div class="input-field col l4 m6 s12">
+                            <p>
+                                <input type="checkbox" id="asia" />
+                                <label for="asia">Ásia</label>
+                            </p>
+                        </div>
+
+                        <div class="input-field col l4 m6 s12">
+                            <p>
+                                <input type="checkbox" id="europa" />
+                                <label for="europa">Europa</label>
+                            </p>
+                            <br />
+                            <br />
+                        </div>
+
+                        <div class="input-field col l12 m12 s12">
+                            <h4 class="deep-purple-text">Fotos</h4>
+                        </div>
+
+                        <div class="input-field col l12 m12 s12">
+
+                            <div id="div_foto-0" class="file-field input-field">
+                                <input class="file-path validate" type="text" />
+                                <div class="btn waves-effect waves-light deep-purple lighten-2">
+                                    <span class="mdi-file-cloud-upload file_icon"></span>
+                                    <input id="foto_0" type="file" />
+                                </div>
+                            </div>
+
+                            <div id="div_add_fotos" class="center-align">
+                                <a id="add_mais_fotos" class="btn waves-effect waves-light deep-purple lighten-1 center-align"><i class="mdi-image-add-to-photos"></i>  Adicionar Mais...</a>
+                                <br/>
+                                <br/>
+                            </div>
+                        </div>
+
+                        <div class="input-field col l12 m12 s12">
+                            <h4 class="deep-purple-text">Campos Extras</h4>
+                        </div>
+
+                        <div class="input-field col l6 m6 s12">
+                            <input id="campo_nome-0" name="campo_nome0" type="text" class="validate">
+                            <label for="campo_nome-0">Nome do campo</label>
+                        </div>
+                        <div class="input-field col l6 m6 s12">
+                            <input id="campo_valor-0" name="campo_valor0" type="text" class="validate">
+                            <label for="campo_valor-0">Valor do campo</label>
+                        </div>
+
+                        <div class="input-field col l12 m12 s12">
+                            <div class="center-align">
+                                <a id="add_mais_campos" class="btn waves-effect waves-light deep-purple lighten-1"><i class="mdi-image-add-to-photos"></i> Adicionar outro Campo</a>
+                            </div>
+                            <br/>
+                            <br/>
+                        </div>
+                    </div>
+                    <br />
+                </form>
+            </div>
+            <div class="center-align">
+                <button form="registerForm" class="btn waves-effect waves-light deep-purple lighten-1" type="submit">Submeter
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col l3 m3 s12 sidebar center-align">
+        <br/>
+        <h5 class="deep-purple-text ">Já possui conta?</h5>
+        <a class="btn waves-effect waves-light deep-purple lighten-1" href="login.html">Entrar</a>
+    </div>
+</div>
