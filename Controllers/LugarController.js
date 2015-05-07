@@ -1,6 +1,10 @@
     var trank = angular.module("trankApp");
 
     trank.controller("LugarController", function ($scope, $rootScope, lugar, lugaresApi) {
+         $scope.$on("$viewContentLoaded", function () {
+            initLugar();
+        });
+
         $scope.lugar = lugar;
         $scope.avaliacao = 4;
         $scope.usuario = $rootScope.usuario;
@@ -18,7 +22,21 @@
             $scope.comentario = "";
         }
         
-        $scope.enviarAvaliacao = function(voto, lugarId) {
+        $scope.enviarAvaliacao = function(lugarId) {
+            var voto =  $('input[name="score"]').val();
             lugaresApi.calcularAvaliacao(voto, lugarId);
         }
     });
+
+
+
+    function initLugar(){
+
+        $('#jRate').raty({ 
+            starType: 'i',
+            score: 2.5,
+            halfShow: true,
+            half: true,
+        });
+
+    }
