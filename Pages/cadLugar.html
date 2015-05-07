@@ -26,48 +26,39 @@
 
                         <div class="input-field col l12 m12 s12">
                             <h4 class="deep-purple-text">Categorias</h4>
+                            <span class="in_erro" ng-show="!algumSelecionado(categorias)">Selecione ao menos uma categoria</span>
                         </div>
 
-                        <div class="input-field col l4 m6 s12">
+                        <div class="input-field col l4 m6 s12" ng-repeat="c in allCat">
                             <p>
-                                <input type="checkbox" id="america" ng-model="caLugar.categorias['america']" />
-                                <label for="america">America</label>
-                            </p>
-                        </div>
-                        <div class="input-field col l4 m6 s12">
-                            <p>
-                                <input type="checkbox" id="asia" ng-model="caLugar.categorias['asia']" />
-                                <label for="asia">Ásia</label>
+                                <input name="{{c.id}}" type="checkbox" id="{{c.id}}" ng-model="categorias[c.id]" />
+                                <label for="{{c.id}}">{{ c.nome }}</label>
                             </p>
                         </div>
 
-                        <div class="input-field col l4 m6 s12">
-                            <p>
-                                <input type="checkbox" id="europa" ng-model="caLugar.categorias['europa']" />
-                                <label for="europa">Europa</label>
-                            </p>
-                            <br />
-                            <br />
-                        </div>
-                        <span class="in_erro" ng-show="!algumSelecionado(caLugar.categorias)">Selecione ao menos uma categoria</span>
-
+                        <br />
+                        <br />
 
                         <div class="input-field col l12 m12 s12">
                             <h4 class="deep-purple-text">Fotos</h4>
                         </div>
 
                         <div class="input-field col l12 m12 s12">
+                            <div ng-repeat="img in imagens" class="repeated-item col s12 m12 l12">
 
-                            <div id="div_foto-0" class="file-field input-field">
-                                <input class="file-path validate" type="text" ng-model="imagem" required/>
-                                <div class="btn waves-effect waves-light deep-purple lighten-2">
-                                    <span class="mdi-file-cloud-upload file_icon"></span>
-                                    <input id="foto_0" type="file" />
-                                </div>
+                                <div class="file-field empty input-field col s10 offset-s1">
+                                    <img class="col s12 center-align img_file" src="{{ img.base64 }}">
+                                    <div class="mybtn col s6 m4 l2 offset-s3 offset-m4 offset-l5 center-align">
+                                        <span class="mdi-file-cloud-upload file_icon grey-text lighten-3" ></span>
+                                        <input name="foto_{{ img.id }}" id="foto_{{ img.id }}" type="file" accept="image/*" fileread="img.base64" accept="image/*" class="center-align" />
+                                    </div>
+
+                                </div> 
+                                <div class="col s1 fadein fadeout" ng-show="imagensPodeDeletar()"><a ng-click="removeImg(img.id);" href=""><i class="mdi-action-highlight-remove small red-text"></i></a></div>
+
                             </div>
-
-                            <div id="div_add_fotos" class="center-align">
-                                <a id="add_mais_fotos" class="btn waves-effect waves-light deep-purple lighten-1 center-align"><i class="mdi-image-add-to-photos"></i>  Adicionar Mais...</a>
+                            <div id="div_add_fotos" class="center-align col s12 m12 l12 addMore">
+                                <a ng-click="addImg();" class="btn waves-effect waves-light deep-purple lighten-1 center-align"><i class="mdi-image-add-to-photos"></i>  Adicionar Mais...</a>
                                 <br/>
                                 <br/>
                             </div>
@@ -77,28 +68,38 @@
                             <h4 class="deep-purple-text">Campos Extras</h4>
                         </div>
 
-                        <div class="input-field col l6 m6 s12">
-                            <input id="campo_nome-0" name="campo_nome0" type="text" ng-model="componentes" required>
-                            <label for="campo_nome-0">Nome do campo</label>
-                        </div>
-                        <div class="input-field col l6 m6 s12">
-                            <input id="campo_valor-0" name="campo_valor0" type="text" required>
-                            <label for="campo_valor-0">Valor do campo</label>
+                        <div ng-repeat="e in camposExtras" class="col s12 borda-on-small round-corner repeated-item">
+                            <div class="col s11">
+                                <div class="input-field col l6 m6 s12">
+                                    <input id="campo_nome-{{ e.id }}" name="campo_nome-{{ e.id }}" type="text" ng-model="e.nome">
+                                    <label for="campo_nome-{{ e.id }}">Nome do campo</label>
+                                </div>
+                                <div class="input-field col l6 m6 s12">
+                                   <input id="campo_valor-{{ e.id }}" name="campo_valor-{{ e.id }}" type="text" ng-model="e.valor">
+                                    <label for="campo_valor-{{ e.id }}">Valor do campo</label>
+                                </div>
+                            </div>
+                            <div class="col s1 fadein fadeout" ng-show="camposPodeDeletar()">
+                                <a ng-click="removeCampo(e.id);" class="red-text" href=""><i class="mdi-action-highlight-remove small"></i></a>
+                            </div>
                         </div>
 
                         <div class="input-field col l12 m12 s12">
                             <div class="center-align">
-                                <a id="add_mais_campos" class="btn waves-effect waves-light deep-purple lighten-1"><i class="mdi-image-add-to-photos"></i> Adicionar outro Campo</a>
+                                <a ng-click="addCampo();" class="btn waves-effect waves-light deep-purple lighten-1"><i class="mdi-image-add-to-photos"></i> Adicionar outro Campo</a>
                             </div>
                             <br/>
                             <br/>
                         </div>
+
+
+
                     </div>
                     <br />
                 </form>
             </div>
             <div class="center-align">
-                <input ng-click="cadastrar(nomeLugar, user.email, descricao, imagem, categoria, componentes)" type="submit" form="registerForm" class="btn waves-effect waves-light deep-purple lighten-1" type="submit">
+                <input ng-click="cadastrar(nomeLugar, user.email, descricao, categorias)" type="submit" form="registerForm" class="btn waves-effect waves-light deep-purple lighten-1" type="submit">
             </div>
         </div>
     </div>
@@ -109,3 +110,4 @@
         <a class="btn waves-effect waves-light deep-purple lighten-1" href="login.html">Entrar</a>
     </div>
 </div>
+

@@ -2,8 +2,14 @@
 
     trank.controller("CadastrarLugarController", function ($scope, $rootScope, lugaresApi) {
 
+        $scope.imgId = 1;
+        $scope.camposId = 1;
+
         $scope.usuario = $rootScope.usuario;
         $scope.categorias = {america: false, europa: false, asia: false};
+        $scope.allCat = lugaresApi.listarCategorias();
+        $scope.imagens = [{'id':0,'url':'','base64':''}];
+        $scope.camposExtras = [{'id':0,'nome':'','valor':''}];
 
         $rootScope.$watch('usuario', function (u) {
             $scope.usuario = u;
@@ -17,16 +23,98 @@
             return (field.$error.pattern && field.$dirty);
         }
         
-        $scope.cadastrar = function(nome, autor, descricao, imagem, categoria, componentes){
-            lugaresApi.adicionarLugar(nome, autor, descricao, [imagem], [categoria], [componentes]);
+        $scope.cadastrar = function(nome, autor, descricao, categorias){
+
+            var cats = [];
+            var keys = Object.keys(categorias);
+
+            for (i=0; i<keys.length; i++){
+                if (categorias[keys[i]]){
+                    cats.push(keys[i]);
+                }     
+            }
+
+            var id;
+            var camposImg = [];
+            for (var i=0; i<$scope.imagens.length; i++){
+                id = $scope.imagens[i].id;
+                camposImg.push($scope.cadLugar['foto_'+id]);
+            }
+
+            //var imagens = $scope.cadLugar
+            console.log($scope.cadLugar['foto_0']);
+            console.log($scope.cadLugar.foto_0);
+            console.log($('#foto_0'));
+            console.log(camposImg);
+
+            //lugaresApi.adicionarLugar(nome, autor, descricao, [imagem], cats, [componentes]);
             console.log(nome);
-            console.log(categoria);
         }
         
         $scope.algumSelecionado = function(obj){
-            return Object.keys(obj).some(function (key){
-               return obj[key]; 
-            });
+            var cadLugar = $scope.cadLugar;
+
+            var dirty = false;
+
+            // Verifica se todos os inputs de categoria são "sujos"
+            for (var i=0; i < $scope.allCat.length; i++){
+                dirty = dirty || cadLugar[$scope.allCat[i].id].$dirty;
+            }
+
+            // Se não são sujos, retorna true (para não mostrar o 'erro')
+            if (!dirty){
+                return true;
+
+            //Senão, retorna se existe algum selecionado
+            }else{ 
+                return Object.keys(obj).some(function (key){
+                    return obj[key]; 
+                });
+            }
+        }
+
+        $scope.removeImg = function(id){
+            if ($scope.imagens.length >1){
+                for (var i=0; i< $scope.imagens.length; i++){
+                    if ($scope.imagens[i].id === id){
+                        $scope.imagens.splice(i,1);
+                        break;
+                    }
+                }
+            }
+        }
+
+        $scope.imagensPodeDeletar = function(){
+            return ($scope.imagens.length > 1);
+        }
+
+        $scope.addImg = function(){
+            $scope.imagens.push({'id':$scope.imgId,'url':'','base64':''});
+            $scope.imgId++;
+        }
+
+        $scope.removeCampo = function(id){
+            if ($scope.camposExtras.length >1){
+                for (var i=0; i< $scope.camposExtras.length; i++){
+                    if ($scope.camposExtras[i].id === id){
+                        $scope.camposExtras.splice(i,1);
+                        break;
+                    }
+                }
+            }
+        }
+
+        $scope.camposPodeDeletar = function(){
+            return ($scope.camposExtras.length > 1);
+        }
+
+        $scope.addCampo = function(){
+            $scope.camposExtras.push({'id':$scope.camposId,'valor':''});
+            $scope.camposId++;
+        }
+
+        $scope.mostraImg = function(){
+            console.log($scope.imagens);
         }
 
     });

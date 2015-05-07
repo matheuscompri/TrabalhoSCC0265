@@ -1,6 +1,6 @@
 var trank;
 
-trank = angular.module("trankApp", ["ngRoute", "lugaresApi"]);
+trank = angular.module("trankApp", ["ngRoute", "lugaresApi", "ngAnimate"]);
 
 trank.config(function ($routeProvider) {
     $routeProvider.when("/", {
