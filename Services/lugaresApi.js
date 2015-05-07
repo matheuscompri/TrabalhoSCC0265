@@ -304,6 +304,20 @@ api.factory("lugaresApi", function () {
 
             }
         },
+        
+        emailJaExiste: function(email){
+
+			var u = usuarios.filter(function(u){
+				return u.email.toLowerCase() === email.toLowerCase();
+			});
+
+			if (u.length > 0){
+				return true;
+			}else{
+				return false;
+			}
+
+		},
 
         login: function (usuario, senha) {
 

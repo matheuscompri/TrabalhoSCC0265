@@ -13,6 +13,15 @@
             return (field.$error.pattern && field.$dirty);
         }
 
+        $scope.emailJaExiste = function(field){
+            var email = field.$modelValue;
+            if (email){
+                return lugaresApi.emailJaExiste(email);
+            }else{
+                return false;
+            }
+        }
+
         $scope.dataInvalida = function(field){
             var valid = true;
             var data_nascimento = field.$modelValue;
@@ -60,6 +69,9 @@
             if ($scope.senhaInvalida($scope.cadUsuario.senha))
                 valid = false;
 
+            if ($scope.emailJaExiste($scope.cadUsuario.email))
+                valid = false;
+
             if (!valid) {
                 //Deu ruim
                 for (var i=0; i< $scope.cadUsuario.$error.required.length; i++){
@@ -86,9 +98,24 @@
 
         $('select').material_select();
 
-        $('.datepicker').pickadate({
+        $('#data_nasc').pickadate({
             selectMonths: true, // Creates a dropdown to control month
-            selectYears: 15 // Creates a dropdown of 15 years to control year
+            selectYears: 120, // Creates a dropdown of 15 years to control year
+            format: 'dd/mm/yyyy',
+            formatSubmit: 'dd/mm/yyyy',
+            monthsFull: ['Janeiro', 'Fevereiro', 'Maço', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            weekdaysFull: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+            weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+            showMonthsShort: undefined,
+            showWeekdaysFull: undefined,
+            today: 'Hoje',
+            clear: 'Limpar',
+            close: 'Fechar',
+            labelMonthNext: 'Mês seguinte',
+            labelMonthPrev: 'Mês anterior',
+            labelMonthSelect: 'Selecione um mês',
+            labelYearSelect: 'Selecione um ano',
         });
 
         $('#nome').mask("W", {
@@ -123,14 +150,6 @@
             }
         });
 
-        $('#data_nasc').mask("00/00/0000", {
-            placeholder: "__/__/____",
-            onInvalid: function (val, e, f, invalid, options) {
-                var error = invalid[0];
-                Materialize.toast('Caractere \'' + error.v + '\' Inválido para a Data!', 4000, 'rounded red darken-4 left');
-            }
-        });
-
         $('#telefone').mask("(00) 00000-0000", {
             onInvalid: function (val, e, f, invalid, options) {
                 var error = invalid[0];
@@ -138,7 +157,6 @@
             }
         });
 
-        
     }
 
 
