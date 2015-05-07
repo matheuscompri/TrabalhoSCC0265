@@ -7,10 +7,6 @@
         $rootScope.$watch('usuario', function( u ){
             $scope.usuario = u;
         });
-
-        $scope.$watch('usuario',function(u){
-            $rootScope.usuario = u;
-        });
         
         $scope.sair = function()
         {
