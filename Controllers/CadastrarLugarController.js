@@ -25,6 +25,9 @@
         
         $scope.cadastrar = function(nome, autor, descricao, categorias){
 
+            console.log(imagens);
+
+
             var cats = [];
             var keys = Object.keys(categorias);
 
@@ -34,21 +37,27 @@
                 }     
             }
 
-            var id;
-            var camposImg = [];
+            var img;
+            var imagens = [];
             for (var i=0; i<$scope.imagens.length; i++){
-                id = $scope.imagens[i].id;
-                camposImg.push($scope.cadLugar['foto_'+id]);
+                console.log('a:'+i);
+                if($scope.imagens[i].base64 !== ""){
+                    imagens.push($scope.imagens[i].base64);
+                }
             }
 
-            //var imagens = $scope.cadLugar
-            console.log($scope.cadLugar['foto_0']);
-            console.log($scope.cadLugar.foto_0);
-            console.log($('#foto_0'));
-            console.log(camposImg);
+            console.log(imagens);
+            console.log($scope.imagens);
 
-            //lugaresApi.adicionarLugar(nome, autor, descricao, [imagem], cats, [componentes]);
-            console.log(nome);
+            var cmp;
+            var campos = [];
+            for (var i=0; i<$scope.camposExtras.length; i++){
+                if($scope.camposExtras[i].nome !== "")
+                    imagens.push({'nome':$scope.camposExtras[i].nome,'valor':$scope.camposExtras[i].valor});
+            }
+
+
+            lugaresApi.adicionarLugar(nome, autor, descricao, imagens, cats, campos);
         }
         
         $scope.algumSelecionado = function(obj){
@@ -111,10 +120,6 @@
         $scope.addCampo = function(){
             $scope.camposExtras.push({'id':$scope.camposId,'valor':''});
             $scope.camposId++;
-        }
-
-        $scope.mostraImg = function(){
-            console.log($scope.imagens);
         }
 
     });
