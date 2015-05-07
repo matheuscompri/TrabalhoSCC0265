@@ -16,9 +16,9 @@
                         </div>
                         <div class="col s12 m12 l6">
                             <h3><a ng-href="#/lugares/{{lugar.id}}">{{lugar.nome}}</a></h3>
+                            <div class="jrate" data-rating="{{ lugar.ranking }}"></div>
                             <p><b>Descrição: </b>{{lugar.descricao}}</p>
                             <p><b>Outras informações: </b>?</p>
-                            <p><b>Avaliação: </b><i class="mdi-action-grade amber-text darken-5" ng-repeat="a in range(lugar.ranking) track by $index"></i>
                             </p>
                             <p><b>Quantidade de Avaliadores: </b>
                             </p>
@@ -46,3 +46,6 @@
 
     </div>
 </div>
+
+<link rel="stylesheet" href="Resources/css/jquery.raty.css">
+<script src="Resources/js/jquery.raty.js"></script>
