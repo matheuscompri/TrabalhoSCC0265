@@ -53,8 +53,8 @@ api.factory("lugaresApi", function () {
                 nome: "Paulo",
                 comentario: "Muito interessante"
             }],
-            "ranking": 0,
-            "numeroVotos": 0,
+            "ranking": 4,
+            "numeroVotos": 2,
             "id": 1
   },
 
@@ -67,8 +67,8 @@ api.factory("lugaresApi", function () {
             "componentes": [],
             "comentarios": [],
             "data": new Date(),
-            "ranking": 0,
-            "numeroVotos": 0,
+            "ranking": 3,
+            "numeroVotos": 1,
             "id": 2
   },
 
@@ -81,8 +81,8 @@ api.factory("lugaresApi", function () {
             "componentes": [],
             "comentarios": [],
             "data": new Date(),
-            "ranking": 0,
-            "numeroVotos": 0,
+            "ranking": 4,
+            "numeroVotos": 5,
             "id": 3
   },
 
@@ -95,8 +95,8 @@ api.factory("lugaresApi", function () {
             "componentes": [],
             "comentarios": [],
             "data": new Date(),
-            "ranking": 0,
-            "numeroVotos": 0,
+            "ranking": 2,
+            "numeroVotos": 4,
             "id": 4
   },
 
@@ -110,8 +110,8 @@ api.factory("lugaresApi", function () {
             "componentes": [],
             "comentarios": [],
             "data": new Date(),
-            "ranking": 0,
-            "numeroVotos": 0,
+            "ranking": 4,
+            "numeroVotos": 3,
             "id": 5
   },
 
@@ -124,8 +124,8 @@ api.factory("lugaresApi", function () {
             "componentes": [],
             "comentarios": [],
             "data": new Date(),
-            "ranking": 0,
-            "numeroVotos": 0,
+            "ranking": 4,
+            "numeroVotos": 6,
             "id": 6
   },
 
@@ -138,8 +138,8 @@ api.factory("lugaresApi", function () {
             "componentes": [],
             "comentarios": [],
             "data": new Date(),
-            "ranking": 0,
-            "numeroVotos": 0,
+            "ranking": 3,
+            "numeroVotos": 12,
             "id": 7
   },
 
@@ -152,8 +152,8 @@ api.factory("lugaresApi", function () {
             "componentes": [],
             "comentarios": [],
             "data": new Date(),
-            "ranking": 0,
-            "numeroVotos": 0,
+            "ranking": 3,
+            "numeroVotos": 4,
             "id": 8
   },
 
@@ -169,8 +169,8 @@ api.factory("lugaresApi", function () {
             "componentes": [],
             "comentarios": [],
             "data": new Date(),
-            "ranking": 0,
-            "numeroVotos": 0,
+            "ranking": 5,
+            "numeroVotos": 2,
             "id": 9
   },
 
@@ -183,8 +183,8 @@ api.factory("lugaresApi", function () {
             "componentes": [],
             "comentarios": [],
             "data": new Date(),
-            "ranking": 0,
-            "numeroVotos": 0,
+            "ranking": 4,
+            "numeroVotos": 2,
             "id": 10
   },
 
@@ -197,8 +197,8 @@ api.factory("lugaresApi", function () {
             "componentes": [],
             "comentarios": [],
             "data": new Date(),
-            "ranking": 0,
-            "numeroVotos": 0,
+            "ranking": 4,
+            "numeroVotos": 7,
             "id": 11
   },
 
@@ -211,8 +211,8 @@ api.factory("lugaresApi", function () {
             "componentes": [],
             "comentarios": [],
             "data": new Date(),
-            "ranking": 0,
-            "numeroVotos": 0,
+            "ranking": 5,
+            "numeroVotos": 2,
             "id": 12
   }
 
