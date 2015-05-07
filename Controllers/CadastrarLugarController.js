@@ -25,9 +25,6 @@
         
         $scope.cadastrar = function(nome, autor, descricao, categorias){
 
-            console.log(imagens);
-
-
             var cats = [];
             var keys = Object.keys(categorias);
 
@@ -46,16 +43,12 @@
                 }
             }
 
-            console.log(imagens);
-            console.log($scope.imagens);
-
             var cmp;
             var campos = [];
             for (var i=0; i<$scope.camposExtras.length; i++){
                 if($scope.camposExtras[i].nome !== "")
                     imagens.push({'nome':$scope.camposExtras[i].nome,'valor':$scope.camposExtras[i].valor});
             }
-
 
             lugaresApi.adicionarLugar(nome, autor, descricao, imagens, cats, campos);
         }
