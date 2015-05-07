@@ -59,33 +59,14 @@
                         </div>
                     </form>
                 </div>
-                <h3>Avaliar</h3>
                 <div class="card deep-purple darken-2">
                     <div class="card-content white-text">
-                        <div class="card-title">Avaliação: {{lugar.ranking | number:1}} Estrelas</div>
-                        <form action="">
-                            <p>
-                                <input value="1" name="ranking" type="radio" id="r1" ng-model="avaliacao" />
-                                <label for="r1"><i class="mdi-action-grade"></i></label>
-                            </p>
-                            <p>
-                                <input value="2" name="ranking" type="radio" id="r2" ng-model="avaliacao" />
-                                <label for="r2"><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i></label>
-                            </p>
-                            <p>
-                                <input value="3" name="ranking" type="radio" id="r3" ng-model="avaliacao" />
-                                <label for="r3"><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i></label>
-                            </p>
-                            <p>
-                                <input value="4" name="ranking" type="radio" id="r4" ng-model="avaliacao" />
-                                <label for="r4"><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i></label>
-                            </p>
-                            <p>
-                                <input value="5" name="ranking" type="radio" id="r5" ng-model="avaliacao" />
-                                <label for="r5"><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i></label>
-                            </p>
+
+                        <div class="card-title">Avaliação</div>
+                        <form name="formAvalia" action="">
+                            <div id="jRate"></div>
                             <div class="center-align">
-                                <input type="button" value="Enviar Avaliação!" class="btn waves-effect waves-light deep-purple lighten-1" ng-click="enviarAvaliacao(avaliacao, lugar.id)">
+                                <input type="button" value="Enviar Avaliação!" class="btn waves-effect waves-light deep-purple lighten-1" ng-click="enviarAvaliacao(lugar.id)">
                             </div>
                         </form>
                     </div>
@@ -107,3 +88,7 @@
         </div>
     </div>
 </div>
+
+
+<link rel="stylesheet" href="Resources/css/jquery.raty.css">
+<script src="Resources/js/jquery.raty.js"></script>
