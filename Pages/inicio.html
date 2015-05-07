@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="col s12 m12 l6">
                                     <h4><a ng-href="#/lugares/{{lugar.id}}">{{lugar.nome}}</a></h4>
-                                    <p><b>Avaliação: </b><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i>
+                                    <p><b>Avaliação: </b><i class="mdi-action-grade amber-text darken-5" ng-repeat="a in range(lugar.ranking) track by $index"></i>
                                     </p>
                                     <p><b>Comparação com Outros X: </b>
                                     </p>

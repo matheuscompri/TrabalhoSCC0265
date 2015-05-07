@@ -18,7 +18,7 @@
                             <h3><a ng-href="#/lugares/{{lugar.id}}">{{lugar.nome}}</a></h3>
                             <p><b>Descrição: </b>{{lugar.descricao}}</p>
                             <p><b>Outras informações: </b>?</p>
-                            <p><b>Avaliação: </b><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i><i class="mdi-action-grade"></i>
+                            <p><b>Avaliação: </b><i class="mdi-action-grade amber-text darken-5" ng-repeat="a in range(lugar.ranking) track by $index"></i>
                             </p>
                             <p><b>Quantidade de Avaliadores: </b>
                             </p>
