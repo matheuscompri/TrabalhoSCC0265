@@ -12,26 +12,25 @@
                         <div class="input-field">
                             <i class="mdi-action-account-circle prefix"></i>
                             <label for="username">Usuário</label>
-                            <input type="text" id="username" ng-model="usuario" name="usuario" required ng-pattern="/^[a-z](([a-z0-9.])*[^.])?@[a-z0-9]+([.][a-z]+)+$/" ng-class="{invalid : campoVazio(loginForm.usuario) || pattern(loginForm.usuario)} || emailNaoExiste(loginForm.usuario)" >
-                            <span  class="in_erro" ng-show="campoVazio(loginForm.usuario);">Campo obrigatório </span>
-                            <span  class="in_erro" ng-show="pattern(loginForm.usuario);">Email inválido </span>
-                            <span  class="in_erro" ng-show="emailNaoExiste(loginForm.usuario);">Email não cadastrado </span>
+                            <input type="text" id="username" ng-model="usuario" name="usuario" required ng-pattern="/^[a-z](([a-z0-9.])*[^.])?@[a-z0-9]+([.][a-z]+)+$/" ng-class="{invalid : campoVazio(loginForm.usuario) || pattern(loginForm.usuario)} || emailNaoExiste(loginForm.usuario)" />
+                            <span class="in_erro" ng-show="campoVazio(loginForm.usuario);">Campo obrigatório </span>
+                            <span class="in_erro" ng-show="pattern(loginForm.usuario);">Email inválido </span>
+                            <span class="in_erro" ng-show="emailNaoExiste(loginForm.usuario);">Email não cadastrado </span>
                         </div>
                         <div class="input-field">
                             <i class="mdi-action-lock prefix"></i>
                             <label for="password">Senha</label>
-                            <input type="password" id="senha" name="senha" ng-model="senha" required  ng-class="{invalid : campoVazio(loginForm.senha)}">
-                            <span  class="in_erro" ng-show="campoVazio(loginForm.senha);">Campo obrigatório</span>
-                            <span  class="in_erro" ng-show="senha_incorreta;">Senha Incorreta</span>
+                            <input type="password" id="senha" name="senha" ng-model="senha" required ng-class="{invalid : campoVazio(loginForm.senha)}" />
+                            <span class="in_erro" ng-show="campoVazio(loginForm.senha);">Campo obrigatório</span>
+                            <span class="in_erro" ng-show="senha_incorreta;">Senha Incorreta</span>
                         </div>
+
+                        <div class="center-align">
+                            <button class="btn waves-effect waves-light deep-purple lighten-1" type="submit" ng-click="entrar(usuario,senha)">Entrar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-
-            <div class="center-align">
-                <button class="btn waves-effect waves-light deep-purple lighten-1" type="submit" ng-click="entrar(usuario,senha)">Entrar</button>
-            </div>
-            </form>
-
         </div>
     </div>
 
