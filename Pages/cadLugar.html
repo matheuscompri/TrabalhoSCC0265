@@ -47,7 +47,7 @@
                             <div ng-repeat="img in imagens" class="repeated-item col s12 m12 l12">
 
                                 <div class="file-field empty input-field col s10 offset-s1">
-                                    <img class="col s12 center-align img_file" src="{{ img.base64 }}">
+                                    <img class="col s12 center-align img_file" src="{{ img.base64 }}" />
                                     <div class="mybtn col s6 m4 l2 offset-s3 offset-m4 offset-l5 center-align">
                                         <span class="mdi-file-cloud-upload file_icon grey-text lighten-3" ></span>
                                         <input name="foto_{{ img.id }}" id="foto_{{ img.id }}" type="file" accept="image/*" fileread="img.base64" accept="image/*" class="center-align" />
