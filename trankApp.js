@@ -50,6 +50,11 @@ trank.config(function ($routeProvider) {
         }
     });
 
+    $routeProvider.when("/comparativo", {
+        controller: "ComparativoController",
+        templateUrl: "Pages/comparativo.html"
+    });
+
     $routeProvider.otherwise({
         template: "<h1>404 Not Found</h1>"
     });
