@@ -34,264 +34,279 @@ footer.page-footer {
     /* IE6-8 */
 }
 
-.my-dark-purple{
+.my-dark-purple {
     background-color: rgba(58, 34, 124, 1);
 }
 
-a{
+a {}
 
-}
+a:hover {}
 
-a:hover{
-}
-
-.main-card{
+.main-card {
     padding-bottom: 20px;
 }
 
-.transparent-white{
-    background-color: rgba(255,255,255,0.9);
+.transparent-white {
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
-.right-border{
+.right-border {
     border-right: solid 1px #dddddd;
 }
 
-.my_shadow{
+.my_shadow {
     -webkit-box-shadow: none;
-       -moz-box-shadow: none;
-            box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }
 
-.my_center{
+.my_center {
     margin: auto;
 }
 
-.select-dropdown{
+.select-dropdown {
     z-index: 10;
     max-height: 250px;
 }
 
-.select-dropdown li > span{
+.select-dropdown li > span {
     color: #5E35B1;
 }
 
 .parallax-container {
     padding-top: 50px;
     padding-bottom: 100px;
-  height: auto;
+    height: auto;
 }
-
 
 .input-field input[type=text]:focus + label {
     color: #000;
 }
 
-.input-field .prefix.active
-{
+.input-field .prefix.active {
     color: #5E35B1;
 }
 
-.input-field .prefix
-{
+.input-field .prefix {
     color: #595959;
 }
 
-.input-field label.active
-{
+.input-field label.active {
     color: #595959 !important;
 }
 
-.file_icon{
-    font-size:4rem;
+.file_icon {
+    font-size: 4rem;
 }
 
-.input-field input[type=text]:focus, .input-field input[type=password]:focus{
+.input-field input[type=text]:focus,
+.input-field input[type=password]:focus {
     border-bottom: 1px solid #5E35B1;
     box-shadow: 0 1px 0 0 #FFF;
 }
 
-@media only screen and (max-width : 600px) {
-    .borda-on-small{
+@media only screen and (max-width: 600px) {
+    .borda-on-small {
         border: solid 1px #cccccc;
     }
 }
 
-.in_erro{
+.in_erro {
     font-size: 8pt;
     color: red;
 }
 
-input{
+input {
     margin-bottom: 0 !important;
 }
 
-.input-field{
+.input-field {
     margin-bottom: 15px;
 }
 
-.round-corner{
+.round-corner {
     -webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 }
-
-
 /* Datepicker */
-.picker__date-display{
+
+.picker__date-display {
     background-color: #5e35b1;
 }
 
-.picker__weekday-display{
-    background-color: rgba(58, 34, 124, 1); 
+.picker__weekday-display {
+    background-color: rgba(58, 34, 124, 1);
 }
 
-.picker__close, .picker__today{
+.picker__close,
+.picker__today {
     color: #5e35b1;
 }
 
-.picker__day.picker__day--today{
+.picker__day.picker__day--today {
     color: #5e35b1;
 }
 
-.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected{
+.picker__day--selected,
+.picker__day--selected:hover,
+.picker--focused .picker__day--selected {
     background-color: #5e35b1;
 }
 
-.picker__nav--prev:hover, .picker__nav--next:hover{
+.picker__nav--prev:hover,
+.picker__nav--next:hover {
     background-color: #a77af7;
 }
 
-.star-on-png, .star-off-png, .star-half-png{
+.star-on-png,
+.star-off-png,
+.star-half-png {
     color: #ffc107;
 }
-
-
-
 /* After the transition this will be the only class remaining */
+
 .fadein {
-  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  opacity: 1; /* Default value but added for clarity */
+    -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    -moz-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    -o-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    opacity: 1;
+    /* Default value but added for clarity */
 }
-
 /* Initial state when showing */
-.fadein.ng-hide-remove, {
-  opacity: 0;
-  display: block !important;
-}
 
+.fadein.ng-hide-remove,
+{
+    opacity: 0;
+    display: block !important;
+}
 /* Will transition towards this state */
-.fadein.ng-hide-remove.ng-hide-remove-active {
-  opacity: 1;
-}
 
+.fadein.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1;
+}
 /*
   We're using CSS transitions for when
   the enter and move events are triggered
   for the element that has the .repeated-item
   class
 */
-.repeated-item.ng-enter, .repeated-item.ng-move {
-  -webkit-transition:0.5s linear all;
-  -moz-transition:0.5s linear all;
-  -o-transition:0.5s linear all;
-  transition:0.5s linear all;
-  opacity:0;
-}
 
+.repeated-item.ng-enter,
+.repeated-item.ng-move {
+    -webkit-transition: 0.5s linear all;
+    -moz-transition: 0.5s linear all;
+    -o-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+    opacity: 0;
+}
 /*
  The ng-enter-active and ng-move-active
  are where the transition destination properties
  are set so that the animation knows what to
  animate.
 */
+
 .repeated-item.ng-enter.ng-enter-active,
 .repeated-item.ng-move.ng-move-active {
-  opacity:1;
+    opacity: 1;
 }
-
 /*
   We're using CSS keyframe animations for when
   the leave event is triggered for the element
   that has the .repeated-item class
 */
+
 .repeated-item.ng-leave {
-  -webkit-animation:0.5s my_animation;
-  -moz-animation:0.5s my_animation;
-  -o-animation:0.5s my_animation;
-  animation:0.5s my_animation;
+    -webkit-animation: 0.5s my_animation;
+    -moz-animation: 0.5s my_animation;
+    -o-animation: 0.5s my_animation;
+    animation: 0.5s my_animation;
 }
 
 @keyframes my_animation {
-  from { opacity:1; }
-  to { opacity:0; }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
-
 /*
   Unfortunately each browser vendor requires
   its own definition of keyframe animation code...
 */
+
 @-webkit-keyframes my_animation {
-  from { opacity:1; }
-  to { opacity:0; }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 
 @-moz-keyframes my_animation {
-  from { opacity:1; }
-  to { opacity:0; }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 
 @-o-keyframes my_animation {
-  from { opacity:1; }
-  to { opacity:0; }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 
-.img_file{
-  margin: auto;
-  margin-left: auto;
-  margin-right: auto;
-
-  margin-bottom: 5px;
-  padding: 0 !important;
+.img_file {
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    padding: 0 !important;
 }
 
-.file-field .mybtn{
-  position: static;
-  margin: auto;
+.file-field .mybtn {
+    position: static;
+    margin: auto;
 }
 
-.file-field .mybtn{
-  display: none;
+.file-field .mybtn {
+    display: none;
 }
 
-.file-field.empty .mybtn{
-  display: inline;
-  margin-top: 60px;
+.file-field.empty .mybtn {
+    display: inline;
+    margin-top: 60px;
 }
 
-.file-field input[type=file]{
-  position: static-block;
-
+.file-field input[type=file] {
+    position: static-block;
 }
 
-.file-field .img_file{
-  border: solid 1px #eeeeee;
-  background-color: #eeeeee;
+.file-field .img_file {
+    border: solid 1px #eeeeee;
+    background-color: #eeeeee;
+    display: inline;
 }
 
-.file-field.empty .img_file{
-  border: none;
+.file-field.empty .img_file {
+    border: none;
+    display: none;
 }
 
-.file-field.empty{
-  min-height: 200px;
-  border: dashed 3px #eeeeee;
+.file-field.empty {
+    min-height: 200px;
+    border: dashed 3px #eeeeee;
 }
 
-.addMore{
-  margin-top: 5px;
+.addMore {
+    margin-top: 5px;
 }
-
