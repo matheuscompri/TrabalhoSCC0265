@@ -9,13 +9,11 @@
             <div class="row">
 
                 <h3>Imagens</h3>
-                <div class="slider">
-                    <ul class="slides">
-                        <li ng-repeat="img in lugar.imagens" slider>
-                            <img ng-src="{{ img }}">
-                        </li>
-                    </ul>
-                </div>
+                <ul>
+                    <li ng-repeat="img in lugar.imagens" slider>
+                        <img class="responsive-img" ng-src="{{ img }}" />
+                    </li>
+                </ul>
 
                 <h3>Informações Gerais:</h3>
                 <p><b>Nome: </b>{{lugar.nome}}</p>
@@ -46,7 +44,7 @@
                 <div ng-hide="usuario" class="center-align red white-text">
                     <i class="mdi-alert-warning"></i> Você deve estar logado no sistema para comentar.
                 </div>
-                
+
                 <div ng-show="usuario">
                     <form action="" ng-submit="form.$error.required" novalidate>
                         <div class="input-field col l12 m12 s12">
