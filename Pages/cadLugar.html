@@ -10,8 +10,8 @@
                 <form name="cadLugar" class="col s12" novalidate>
                     <div class="row">
                         <div class="input-field col l12 m12 s12">
-                            <input id="autor" type="text" name="autor" value="{{ usuario.nome }}" disabled>
-                            <label for="autor">Nome do autor</label>
+                            <input disabled id="autor" type="text" name="autor" value=" {{ usuario.nome }}" />
+                            <label class="active" for="autor">Nome do autor</label>
                         </div>
                         <div class="input-field col l12 m12 s12">
                             <input id="nomeLugar" type="text" ng-class="{invalid : campoVazio(cadLugar.nomeLugar)}" ng-model="nomeLugar" required name="nomeLugar">
@@ -49,12 +49,13 @@
                                 <div class="file-field empty input-field col s10 offset-s1">
                                     <img class="col s12 center-align img_file" src="{{ img.base64 }}" />
                                     <div class="mybtn col s6 m4 l2 offset-s3 offset-m4 offset-l5 center-align">
-                                        <span class="mdi-file-cloud-upload file_icon grey-text lighten-3" ></span>
+                                        <span class="mdi-file-cloud-upload file_icon grey-text lighten-3"></span>
                                         <input name="foto_{{ img.id }}" id="foto_{{ img.id }}" type="file" accept="image/*" fileread="img.base64" accept="image/*" class="center-align" />
                                     </div>
 
-                                </div> 
-                                <div class="col s1 fadein fadeout" ng-show="imagensPodeDeletar()"><a ng-click="removeImg(img.id);" href=""><i class="mdi-action-highlight-remove small red-text"></i></a></div>
+                                </div>
+                                <div class="col s1 fadein fadeout" ng-show="imagensPodeDeletar()"><a ng-click="removeImg(img.id);" href=""><i class="mdi-action-highlight-remove small red-text"></i></a>
+                                </div>
 
                             </div>
                             <div id="div_add_fotos" class="center-align col s12 m12 l12 addMore">
@@ -75,7 +76,7 @@
                                     <label for="campo_nome-{{ e.id }}">Nome do campo</label>
                                 </div>
                                 <div class="input-field col l6 m6 s12">
-                                   <input id="campo_valor-{{ e.id }}" name="campo_valor-{{ e.id }}" type="text" ng-model="e.valor">
+                                    <input id="campo_valor-{{ e.id }}" name="campo_valor-{{ e.id }}" type="text" ng-model="e.valor">
                                     <label for="campo_valor-{{ e.id }}">Valor do campo</label>
                                 </div>
                             </div>
@@ -110,4 +111,3 @@
         <a class="btn waves-effect waves-light deep-purple lighten-1" href="login.html">Entrar</a>
     </div>
 </div>
-
