@@ -367,6 +367,8 @@ api.factory("lugaresApi", function () {
                 };
             
             lugares.push(lugar);
+            
+            return id;
                 
         },
     }

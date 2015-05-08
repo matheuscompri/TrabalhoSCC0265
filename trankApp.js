@@ -7,11 +7,20 @@ trank.config(function ($routeProvider) {
         controller: "InicioController",
         templateUrl: "Pages/inicio.html"
     });
-
+        
     $routeProvider.when("/entrar", {
         controller: "EntrarController",
-        templateUrl: "Pages/entrar.html"
+        templateUrl: "Pages/entrar.html",
+        resolve: {
+            next: function ($route) {
+                var next = $route.current.params.next;
 
+                if (next)
+                    return next;
+                else
+                    return "/";
+            }
+        }
     });
 
     $routeProvider.when("/cadastro", {

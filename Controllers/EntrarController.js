@@ -1,49 +1,54 @@
     var trank = angular.module("trankApp");
 
-    trank.controller("EntrarController", function ($rootScope, $scope, $location, lugaresApi) {
+    trank.controller("EntrarController", function ($rootScope, $scope, $location, lugaresApi, next) {
         $scope.usuario = "";
         $scope.senha = "";
+        $scope.next = next;
+
 
         $scope.senha_incorreta = false;
 
-        $scope.campoVazio = function(field){
+        $scope.campoVazio = function (field) {
             return (field.$error.required && field.$dirty);
         }
 
-        $scope.pattern = function(field){
+        $scope.pattern = function (field) {
             return (field.$error.pattern && field.$dirty);
         }
 
-        $scope.emailNaoExiste = function(field){
+        $scope.emailNaoExiste = function (field) {
             var email = field.$modelValue;
-            if (!field.$error.pattern && !field.$error.required){
-                if (email){
+            if (!field.$error.pattern && !field.$error.required) {
+                if (email) {
                     return !lugaresApi.emailJaExiste(email) && field.$dirty;
-                }else{
+                } else {
                     return true && field.$dirty;
                 }
             }
             return false;
         }
 
-        $scope.entrar = function(usuario,senha){
+        $scope.entrar = function (usuario, senha) {
+            console.log(next);
+
             var valid = $scope.loginForm.$valid;
 
             if ($scope.emailNaoExiste($scope.loginForm.usuario))
                 valid = false;
 
-            if($scope.loginForm.$valid){
-                var u = lugaresApi.login(usuario,senha); 
-                if(u){  
+            if ($scope.loginForm.$valid) {
+                var u = lugaresApi.login(usuario, senha);
+                if (u) {
                     $rootScope.usuario = u;
-                    $location.path( "/" );
+                    $location.path($scope.next);
+                    $location.search('next', null);
                     $scope.senha_incorreta = false;
-                }else{
+                } else {
                     $rootScope.usuario = false;
                     $scope.senha_incorreta = true;
                 }
-            }else{
-                for (var i=0; i< $scope.loginForm.$error.required.length; i++){
+            } else {
+                for (var i = 0; i < $scope.loginForm.$error.required.length; i++) {
                     $scope.loginForm.$error.required[i].$setDirty();
                 }
             }
