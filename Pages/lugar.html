@@ -11,19 +11,23 @@
                 <h3>Imagens</h3>
                 <ul>
                     <li ng-repeat="img in lugar.imagens" slider>
-                        <img class="responsive-img" ng-src="{{ img }}" />
+                        <img class="imagem responsive-img" ng-src="{{ img }}" />
                     </li>
                 </ul>
 
                 <h3>Informações Gerais:</h3>
-                <p><b>Nome: </b>{{lugar.nome}}</p>
-                <p><b>Descrição: </b>{{lugar.descricao}}</p>
-                <p><b>Autor: </b>{{ lugar.autor }}</p>
-                <p><b>Categorias: </b> <span ng-repeat="cat in categorias">{{ cat.nome }}</span>
+                <p><b>Nome: </b><span id="nome">{{lugar.nome}}</span></p>
+                <p><b>Descrição: </b><span id="descricao">{{lugar.descricao}}</span></p>
+                <p><b>Autor: </b><span id="autor">{{ lugar.autor }}</span></p>
+                <p><b>Categorias: </b> <span class="categoria" ng-repeat="cat in categorias">{{ cat.nome }}</span>
 
                 </p>
-                <p><b>Outras Infor: </b>
-                </p>
+                <p><b>Outras Infor: </b></p>
+                <p><b>Data de Criação: </b><span id="data">{{ lugar.data }}</span></p>
+                
+                <input type="hidden" id="lugar_id" value="{{ lugar.id }}">
+                <input type="hidden" id="ranking" value="{{ lugar.ranking }}">
+                <input type="hidden" id="numVotos" value="{{ lugar.numeroVotos }}">
 
 
                 <h3>Comentários</h3>
@@ -35,8 +39,8 @@
                 </div>
 
                 <div class="card deep-purple darken-2" ng-repeat="comentario in lugar.comentarios">
-                    <div class="card-content white-text">
-                        <span class="card-title">{{comentario.nome}}</span>
+                    <div class="card-content white-text comentario">
+                        <span class="card-title" data-email="{{ comentario.usuario }}">{{comentario.nome}}</span>
                         <p>{{comentario.comentario}}</p>
                     </div>
                 </div>
@@ -70,8 +74,7 @@
                 </div>
                 <h3>Comparação por categoria:</h3>
                 <ul> <li ng-repeat="cat in categorias"><a ng-href="#/comparativo/{{ cat.id }}">{{cat.nome}}</a></li></ul>
-                <h3>Exportar</h3>
-                <a>XML</a>
+                <h3 id="exportar">Exportar</h3>
             </div>
         </div>
 
