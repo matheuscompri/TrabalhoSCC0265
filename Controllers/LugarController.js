@@ -8,7 +8,13 @@
         $scope.lugar = lugar;
         $scope.avaliacao = 4;
         $scope.usuario = $rootScope.usuario;
+        
+        $scope.categorias = [];
 
+        for (var i=0; i <  lugar.categorias.length; i++){
+            $scope.categorias.push(lugaresApi.listarCategoria(lugar.categorias[i])[0]);
+        }
+        
         $rootScope.$watch('usuario', function( u ){
             $scope.usuario = u;
         });

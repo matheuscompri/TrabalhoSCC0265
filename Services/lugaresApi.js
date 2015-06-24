@@ -247,7 +247,17 @@ api.factory("lugaresApi", function () {
             else
                 return {};
         },
-
+        listarLugarNome: function (nome) {
+            //Filtra lugares de acordo com a categoria
+            var lugares_filtrados = lugares.filter(function (lugar) {
+                return lugar.nome === nome;
+            });
+            if (lugares_filtrados.length)
+                return lugares_filtrados[0];
+            else
+                return {};
+        },
+        
         listarCategoria: function (catId) {
             //Filtra lugares de acordo com o id da categoria
             var categorias_filtradas = categorias.filter(function (categoria) {

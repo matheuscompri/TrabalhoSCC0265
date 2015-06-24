@@ -19,7 +19,7 @@
                 <p><b>Nome: </b>{{lugar.nome}}</p>
                 <p><b>Descrição: </b>{{lugar.descricao}}</p>
                 <p><b>Autor: </b>{{ lugar.autor }}</p>
-                <p><b>Categorias: </b> <span ng-repeat="cat in lugar.categorias">{{ cat }}</span>
+                <p><b>Categorias: </b> <span ng-repeat="cat in categorias">{{ cat.nome }}</span>
 
                 </p>
                 <p><b>Outras Infor: </b>
@@ -68,7 +68,8 @@
                         </form>
                     </div>
                 </div>
-
+                <h3>Comparação por categoria:</h3>
+                <ul> <li ng-repeat="cat in categorias"><a ng-href="#/comparativo/{{ cat.id }}">{{cat.nome}}</a></li></ul>
                 <h3>Exportar</h3>
                 <a>XML</a>
             </div>

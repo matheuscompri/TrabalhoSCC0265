@@ -59,9 +59,19 @@ trank.config(function ($routeProvider) {
         }
     });
 
-    $routeProvider.when("/comparativo", {
+    $routeProvider.when("/comparativo/:catId", {
         controller: "ComparativoController",
-        templateUrl: "Pages/comparativo.html"
+        templateUrl: "Pages/comparativo.html",
+         resolve: {
+            categoria: function (lugaresApi, $route) {
+                var categoria = $route.current.params.catId;
+                return lugaresApi.listarCategoria(categoria);
+            },
+            lugares: function (lugaresApi, $route) {
+                var categoria = $route.current.params.catId;
+                return lugaresApi.listarLugares(categoria);
+            },
+        }
     });
 
     $routeProvider.otherwise({
