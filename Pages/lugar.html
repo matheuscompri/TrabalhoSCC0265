@@ -4,7 +4,7 @@
         <div class="card-title deep-purple-text center-align">
             <h2>{{ lugar.nome }} </h2>
         </div>
-        <div class="card-content">
+        <div class="card-content" itemscope itemtype="http://schema.org/Place">
 
             <div class="row">
 
@@ -16,8 +16,8 @@
                 </ul>
 
                 <h3>Informações Gerais:</h3>
-                <p><b>Nome: </b><span id="nome">{{lugar.nome}}</span></p>
-                <p><b>Descrição: </b><span id="descricao">{{lugar.descricao}}</span></p>
+                <p><b>Nome: </b><span id="nome" itemprop="name">{{lugar.nome}}</span></p>
+                <p><b>Descrição: </b><span id="descricao" itemprop="description">{{lugar.descricao}}</span></p>
                 <p><b>Autor: </b><span id="autor">{{ lugar.autor }}</span></p>
                 <p><b>Categorias: </b> <span class="categoria" ng-repeat="cat in categorias">{{ cat.nome }}</span>
 
