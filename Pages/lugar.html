@@ -22,8 +22,9 @@
                 <p><b>Categorias: </b> <span class="categoria" ng-repeat="cat in categorias">{{ cat.nome }}</span>
 
                 </p>
-                <p><b>Outras Infor: </b></p>
-                <p><b>Data de Criação: </b><span id="data">{{ lugar.data }}</span></p>
+                <p><b>Outras Informações: </b></p>
+                <p class="componentes" ng-repeat="c in lugar.componentes">&nbsp;&nbsp;&nbsp;&nbsp;<b data-nome="{{ c.nome }}">{{ c.nome }}: </b><span class="comp_valor">{{ c.valor }}</span></p>
+                <p><b>Data de Criação: </b><span id="data">{{ lugar.data | date:"dd/MM/yyyy hh:mm:ss"}}</span></p>
                 
                 <input type="hidden" id="lugar_id" value="{{ lugar.id }}">
                 <input type="hidden" id="ranking" value="{{ lugar.ranking }}">

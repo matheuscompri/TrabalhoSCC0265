@@ -46,7 +46,13 @@ api.factory("lugaresApi", function () {
             "descricao": "Ótimo lugar para os fãs de tecnologia. Os passeios incluem visitas a gigantes da tecnologia como Apple, Google, Twitter, Facebook e muito mais.",
             "imagens": ["media/lugares/1.jpg","media/lugares/2.jpg","media/lugares/13.jpg"],
             "categorias": ["america"],
-            "componentes": [],
+            "componentes": [{
+                nome: "População",
+                valor: "Aproximadamente 4 Milhões"
+            },{
+                nome: "Língua",
+                valor: "Inglês"
+            }],
             "data": new Date(2010, 12, 10),
             "comentarios": [{
                 usuario: "paulo@email.com",
@@ -360,6 +366,8 @@ api.factory("lugaresApi", function () {
         adicionarLugar: function (nome, autor, descricao, imagem, categoria, componentes) {
             // Calculando o id do novo elemento
             var id = lugares[lugares.length - 1].id;
+            
+            console.log(componentes);
             
             // Criando o novo objeto
             var lugar = {

@@ -21,7 +21,8 @@
                                 <div class="col s12 m12 l6">
                                     <h4><a ng-href="#/lugares/{{lugar.id}}">{{lugar.nome}}</a></h4>
                                     <div class="jrate" data-rating="{{ lugar.ranking }}"></div>
-                                    <p><b>Comparação com Outros X: </b>
+                                    <p><b>Comparação com Outros Lugares: </b>
+                                    <ul> <li ng-repeat="cat in categorias_lugar[lugar.id]"><a ng-href="#/comparativo/{{ cat.id }}">{{cat.nome}}</a></li></ul>
                                     </p>
                                 </div>
                             </div>

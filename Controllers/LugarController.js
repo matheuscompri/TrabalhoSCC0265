@@ -14,7 +14,6 @@
         $scope.usuario = $rootScope.usuario;
 
         $scope.categorias = [];
-
         for (var i = 0; i < lugar.categorias.length; i++) {
             $scope.categorias.push(lugaresApi.listarCategoria(lugar.categorias[i])[0]);
         }
@@ -83,6 +82,15 @@
             $('imagens', xml).append(img);
         });
 
+        $('lugar', xml).append($('<componentes />', xml));
+        $('.componentes').each(function () {
+            var img = $('<componentes />', xml);
+            
+            img.append( $('<nome />', xml).text($("b",this).attr("data-nome")) );
+            img.append( $('<valor />', xml).text($(".comp_valor",this).text()) );
+            
+            $('componentes', xml).append(img);
+        });    
     
         $('lugar', xml).append($('<comentarios />', xml));
         $('div.comentario').each(function () {
@@ -97,7 +105,7 @@
         
             $('comentarios', xml).append(com);
         });
-
+        
         $('lugar', xml).append($('<data />', xml).text($("#data").text()));
         
         $('lugar', xml).append($('<ranking />', xml).text($("#ranking").val()));

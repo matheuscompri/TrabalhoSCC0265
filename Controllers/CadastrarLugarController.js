@@ -61,7 +61,6 @@
                 var img;
                 var imagens = [];
                 for (var i = 0; i < $scope.imagens.length; i++) {
-                    console.log('a:' + i);
                     if ($scope.imagens[i].base64 !== "") {
                         imagens.push($scope.imagens[i].base64);
                     }
@@ -69,9 +68,10 @@
 
                 var cmp;
                 var campos = [];
+                                
                 for (var i = 0; i < $scope.camposExtras.length; i++) {
                     if ($scope.camposExtras[i].nome !== "")
-                        imagens.push({
+                        campos.push({
                             'nome': $scope.camposExtras[i].nome,
                             'valor': $scope.camposExtras[i].valor
                         });

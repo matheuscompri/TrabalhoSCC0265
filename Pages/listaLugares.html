@@ -18,9 +18,13 @@
                             <h3><a ng-href="#/lugares/{{lugar.id}}">{{lugar.nome}}</a></h3>
                             <div class="jrate" data-rating="{{ lugar.ranking }}"></div>
                             <p><b>Descrição: </b>{{lugar.descricao}}</p>
-                            <p><b>Outras informações: </b>?</p>
+                            <p><b>Outras Informações: </b></p>
+                            <p class="componentes" ng-repeat="c in lugar.componentes">&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ c.nome }}: </b>{{ c.valor }}</p>
+                            
                             <p><b>Quantidade de Avaliadores: </b>{{ lugar.numeroVotos }}</p>
-                            <p><b>Comparação com Outros X: </b></p>
+                            <p><b>Comparação com Outros Lugares: </b></p>
+                            <ul> <li ng-repeat="cat in categorias_lugar[lugar.id]"><a ng-href="#/comparativo/{{ cat.id }}">{{cat.nome}}</a></li></ul>
+
                         </div>
                     </div>
 
