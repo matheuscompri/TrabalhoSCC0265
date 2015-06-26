@@ -1,3 +1,8 @@
+body
+{
+    background-image: url("/media/bkg_1.jpg");
+}
+
 .row {
     margin-bottom: 0;
 }
