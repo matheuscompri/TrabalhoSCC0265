@@ -416,7 +416,21 @@ api.factory("lugaresApi", function () {
             
             //Obtem todos os nomes de lugares
             for (var i =0; i<lugares.length; i++){
-                if(lugares[i].nome.toLowerCase().indexOf(termo) > -1){
+                
+                var cats = lugares[i].categorias;
+                var cat;
+                var pertence = false;
+                
+                for (var j = 0; j < cats.length; j++){
+                    cat = this.listarCategoria(cats[j])[0].nome.toLowerCase();
+                    if ( cat.toLowerCase().indexOf(termo) > -1 ){
+                        console.log('oba');
+                        pertence = true;
+                        break;
+                    } 
+                }
+                
+                if( (lugares[i].nome.toLowerCase().indexOf(termo) > -1 ) || pertence ){
                     l.push(lugares[i]);
                 }
             }
