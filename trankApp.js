@@ -50,7 +50,7 @@ trank.config(function ($routeProvider) {
 
     $routeProvider.when("/busca", {
         controller: "BuscaController",
-        templateUrl: "Pages/bucaLugares.html",
+        templateUrl: "Pages/buscaLugares.html",
         resolve: {
             termo: function ($route) {
                 return $route.current.params.termo;
