@@ -37,7 +37,7 @@
         $rootScope.trocaBkg = function (){
             $rootScope.num = Math.floor(Math.random()*4) + 1;
             
-            $('body').css("background-image",'url("../../media/bkg_'+($rootScope.num+1)+'.jpg")');
+            $('body').css("background-image",'url("media/bkg_'+($rootScope.num+1)+'.jpg")');
         }
 
     });
