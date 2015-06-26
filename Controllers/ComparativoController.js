@@ -1,7 +1,12 @@
 var trank = angular.module("trankApp");
 
 trank.controller("ComparativoController", function ($rootScope, $scope, $timeout, $location, lugaresApi, categoria, lugares) {
+    
+    $rootScope.title = "Comparativo da Categoria " + categoria[0].nome;
 
+    $rootScope.meta_desc = "Comparativo Gráfico da Categoria " + categoria[0].nome;
+
+    
     $scope.$on("$viewContentLoaded", function () {
 
         $scope.categoria = "Comparativo entre os países da " + categoria[0].nome;

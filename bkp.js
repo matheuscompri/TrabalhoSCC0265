@@ -4,11 +4,13 @@ trank = angular.module("trankApp", ["ngAria" ,"ngRoute", "lugaresApi", "ngAnimat
 
 trank.config(function ($routeProvider) {
     $routeProvider.when("/", {
+        title: "Viagem Tranquila é Viagem com Trank!",
         controller: "InicioController",
         templateUrl: "Pages/inicio.html"
     });
         
     $routeProvider.when("/entrar", {
+        title: "Entrar",
         controller: "EntrarController",
         templateUrl: "Pages/entrar.html",
         resolve: {
@@ -24,16 +26,23 @@ trank.config(function ($routeProvider) {
     });
 
     $routeProvider.when("/cadastro", {
+        title: "Registre-se",
         controller: "CadastroController",
         templateUrl: "Pages/cadastro.html"
     });
 
     $routeProvider.when("/cadastrarLugar", {
+        title: "Novo Lugar",
         controller: "CadastrarLugarController",
         templateUrl: "Pages/cadLugar.html",
     });
 
     $routeProvider.when("/categorias/:catId", {
+        title: function(lugaresApi, $route){
+                var categoria = $route.current.params.catId;
+                var cat =  lugaresApi.listarCategoria(categoria);            
+                return "Lugares da Categoria " + cat.nome;
+        },
         controller: "LugaresController",
         templateUrl: "Pages/listaLugares.html",
         resolve: {
@@ -49,8 +58,11 @@ trank.config(function ($routeProvider) {
     });
 
     $routeProvider.when("/busca", {
+        title: function(lugaresApi, $route){          
+                return "Busca por " + $route.current.params.termo;
+        },
         controller: "BuscaController",
-        templateUrl: "Pages/bucaLugares.html",
+        templateUrl: "Pages/buscaLugares.html",
         resolve: {
             termo: function ($route) {
                 return $route.current.params.termo;
@@ -63,6 +75,11 @@ trank.config(function ($routeProvider) {
     });
     
     $routeProvider.when("/lugares/:lugarId", {
+        title: function(lugaresApi, $route){
+                var lugarId = $route.current.params.lugarId;
+                var lugar lugaresApi.listarLugar(lugarId);          
+                return lugar.nome;
+        },
         controller: "LugarController",
         templateUrl: "Pages/lugar.html",
         resolve: {
@@ -74,6 +91,11 @@ trank.config(function ($routeProvider) {
     });
 
     $routeProvider.when("/comparativo/:catId", {
+        title: function(lugaresApi, $route){
+                var categoria = $route.current.params.catId;
+                var cat =  lugaresApi.listarCategoria(categoria);            
+                return "Comparativo da Categoria " + cat.nome;
+        },
         controller: "ComparativoController",
         templateUrl: "Pages/comparativo.html",
          resolve: {
@@ -89,6 +111,13 @@ trank.config(function ($routeProvider) {
     });
 
     $routeProvider.otherwise({
+        title: "404 Não Encontrado",
         template: "<h1>404 Not Found</h1>"
     });
 });
+
+trank.run(['$location', '$rootScope', function($location, $rootScope) {
+    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+        $rootScope.title = current.$$route.title;
+    });
+}]);

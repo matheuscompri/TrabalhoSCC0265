@@ -1,6 +1,9 @@
     var trank = angular.module("trankApp");
 
-    trank.controller("CadastrarLugarController", function ($scope, $rootScope, lugaresApi, $location) {
+    trank.controller("CadastrarLugarController", function ($rootScope, $scope, $rootScope, lugaresApi, $location) {
+        
+        $rootScope.title = "Novo Lugar";
+        $rootScope.meta_desc = "Cadastro de um Novo Lugar!";
 
         $scope.imgId = 1;
         $scope.camposId = 1;

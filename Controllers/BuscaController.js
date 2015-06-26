@@ -1,6 +1,11 @@
     var trank = angular.module("trankApp");
 
-    trank.controller("BuscaController", function ($scope, $timeout, termo, lugares, lugaresApi) {
+    trank.controller("BuscaController", function ($rootScope, $scope, $timeout, termo, lugares, lugaresApi) {
+        
+        $rootScope.title = "Busca por " + termo;
+        $rootScope.meta_desc = "Tranks - busca por lugares e/ou categorias relacionados ao termo: " + termo;
+
+        
         $scope.$on("$viewContentLoaded", function () {
 	      $timeout(function() {
 	            initInicio();

@@ -1,6 +1,10 @@
     var trank = angular.module("trankApp");
 
     trank.controller("EntrarController", function ($rootScope, $scope, $location, lugaresApi, next) {
+        
+        $rootScope.title = "Entrar";
+        $rootScope.meta_desc = "Página para acesso ao sistema."
+            
         $scope.usuario = "";
         $scope.senha = "";
         $scope.next = next;

@@ -1,6 +1,11 @@
     var trank = angular.module("trankApp");
 
-    trank.controller("LugarController", function ($scope, $rootScope, $timeout, lugar, lugaresApi) {
+    trank.controller("LugarController", function ($rootScope, $scope, $rootScope, $timeout, lugar, lugaresApi) {
+        
+        $rootScope.title = lugar.nome;
+        $rootScope.meta_desc = lugar.nome + ", " + lugar.descricao;
+
+        
         $scope.$on("$viewContentLoaded", function () {
             $timeout(function () {
 

@@ -1,6 +1,10 @@
     var trank = angular.module("trankApp");
 
     trank.controller("CadastroController", function ($rootScope, $scope, lugaresApi, $location) {
+        
+        $rootScope.title = "Registre-se";
+        $rootScope.meta_desc = "Tranks - Registre-se no sistema para obter acesso a inúmeras vantagens!";
+            
         $scope.$on("$viewContentLoaded", function () {
             initCadastro()
         });

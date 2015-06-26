@@ -1,6 +1,10 @@
     var trank = angular.module("trankApp");
 
-    trank.controller("InicioController", function ($scope, $timeout, lugaresApi) {
+    trank.controller("InicioController", function ($rootScope, $scope, $timeout, lugaresApi) {
+        
+        $rootScope.title = "Viagem Tranquila é Viagem com Trank!";
+        $rootScope.meta_desc = "Viagem Tranquila é Viagem com Trank! Aqui Você encontra diversos lugares com muitas informções para a sua próxima viagem.";
+        
         $scope.$on("$viewContentLoaded", function () {
 	      $timeout(function() {
 	            initInicio();
