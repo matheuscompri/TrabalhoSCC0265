@@ -5,6 +5,7 @@
         $rootScope.title = "Busca por " + termo;
         $rootScope.meta_desc = "Tranks - busca por lugares e/ou categorias relacionados ao termo: " + termo;
 
+        $rootScope.trocaBkg();
         
         $scope.$on("$viewContentLoaded", function () {
 	      $timeout(function() {

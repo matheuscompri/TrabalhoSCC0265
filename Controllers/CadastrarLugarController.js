@@ -1,22 +1,24 @@
     var trank = angular.module("trankApp");
 
     trank.controller("CadastrarLugarController", function ($rootScope, $scope, $rootScope, lugaresApi, $location) {
-        
+
         $rootScope.title = "Novo Lugar";
         $rootScope.meta_desc = "Cadastro de um Novo Lugar!";
 
+        $rootScope.trocaBkg();
+
         $scope.imgId = 1;
         $scope.camposId = 1;
-        
-        $scope.usuario = $rootScope.usuario;
-        
 
-        if (!$scope.usuario){
-            $location.search('next',$location.path());
+        $scope.usuario = $rootScope.usuario;
+
+
+        if (!$scope.usuario) {
+            $location.search('next', $location.path());
             $location.path('/entrar');
         }
         //}
-        
+
         $scope.categorias = {
             america: false,
             europa: false,
@@ -71,7 +73,7 @@
 
                 var cmp;
                 var campos = [];
-                                
+
                 for (var i = 0; i < $scope.camposExtras.length; i++) {
                     if ($scope.camposExtras[i].nome !== "")
                         campos.push({
@@ -81,12 +83,12 @@
                 }
 
                 var id = lugaresApi.adicionarLugar(nome, autor, descricao, imagens, cats, campos);
-                
-                $location.path( "/lugares/"+id);
 
-                
-            }else{
-                for (var i=0; i< $scope.cadLugar.$error.required.length; i++){
+                $location.path("/lugares/" + id);
+
+
+            } else {
+                for (var i = 0; i < $scope.cadLugar.$error.required.length; i++) {
                     $scope.cadLugar.$error.required[i].$setDirty();
                 }
             }

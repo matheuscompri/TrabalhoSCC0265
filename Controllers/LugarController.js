@@ -1,11 +1,12 @@
     var trank = angular.module("trankApp");
 
     trank.controller("LugarController", function ($rootScope, $scope, $rootScope, $timeout, lugar, lugaresApi) {
-        
+
         $rootScope.title = lugar.nome;
         $rootScope.meta_desc = lugar.nome + ", " + lugar.descricao;
 
-        
+        $rootScope.trocaBkg();
+
         $scope.$on("$viewContentLoaded", function () {
             $timeout(function () {
 
@@ -65,9 +66,11 @@
 
     function criaXML() {
         var xml = $($.parseXML('<?xml version="1.0" encoding="utf-8" ?><lugar />'));
-        
-        $('lugar', xml).attr({id : $("#lugar_id").val()});
-        
+
+        $('lugar', xml).attr({
+            id: $("#lugar_id").val()
+        });
+
         $('lugar', xml).append($('<nome />', xml).text($("#nome").text()));
         $('lugar', xml).append($('<descricao />', xml).text($("#descricao").text()));
         $('lugar', xml).append($('<autor />', xml).text($("#autor").text()));
@@ -80,39 +83,39 @@
         $('lugar', xml).append($('<imagens />', xml));
         $('img.imagem').each(function () {
             var img = $('<imagem />', xml);
-            
-            img.append( $('<url />', xml).text($(this).attr("src")) );
-            img.append( $('<alt />', xml).text($(this).attr("alt")) );
-            
+
+            img.append($('<url />', xml).text($(this).attr("src")));
+            img.append($('<alt />', xml).text($(this).attr("alt")));
+
             $('imagens', xml).append(img);
         });
 
         $('lugar', xml).append($('<componentes />', xml));
         $('.componentes').each(function () {
             var img = $('<componentes />', xml);
-            
-            img.append( $('<nome />', xml).text($("b",this).attr("data-nome")) );
-            img.append( $('<valor />', xml).text($(".comp_valor",this).text()) );
-            
+
+            img.append($('<nome />', xml).text($("b", this).attr("data-nome")));
+            img.append($('<valor />', xml).text($(".comp_valor", this).text()));
+
             $('componentes', xml).append(img);
-        });    
-    
+        });
+
         $('lugar', xml).append($('<comentarios />', xml));
         $('div.comentario').each(function () {
             var com = $('<comentario />', xml);
-            
-            com.append( 
-                $('<usuario />', xml).text($("span",this).text()).attr({
-                    email: $("span",this).attr("data-email")
-                }) 
+
+            com.append(
+                $('<usuario />', xml).text($("span", this).text()).attr({
+                    email: $("span", this).attr("data-email")
+                })
             );
-            com.append( $('<comentario />', xml).text($("p",this).text()) );
-        
+            com.append($('<comentario />', xml).text($("p", this).text()));
+
             $('comentarios', xml).append(com);
         });
-        
+
         $('lugar', xml).append($('<data />', xml).text($("#data").text()));
-        
+
         $('lugar', xml).append($('<ranking />', xml).text($("#ranking").val()));
         $('lugar', xml).append($('<numVotos />', xml).text($("#numVotos").val()));
 

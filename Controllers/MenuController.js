@@ -4,6 +4,8 @@
         $scope.categorias = lugaresApi.listarCategorias();
         $scope.usuario = false;
         
+        $rootScope.num = 0;
+        
         $scope.busca_termo = "";
 
         (function init() {
@@ -30,6 +32,12 @@
         $scope.buscaSubmit = function (){
             $location.search('termo',$scope.busca_termo);
             $location.path("/busca/");
+        }
+        
+        $rootScope.trocaBkg = function (){
+            $rootScope.num = Math.floor(Math.random()*4) + 1;
+            
+            $('body').css("background-image",'url("../../media/bkg_'+($rootScope.num+1)+'.jpg")');
         }
 
     });

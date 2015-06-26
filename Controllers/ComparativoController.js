@@ -1,12 +1,13 @@
 var trank = angular.module("trankApp");
 
 trank.controller("ComparativoController", function ($rootScope, $scope, $timeout, $location, lugaresApi, categoria, lugares) {
-    
-    $rootScope.title = "Comparativo da Categoria " + categoria[0].nome;
 
+    $rootScope.title = "Comparativo da Categoria " + categoria[0].nome;
     $rootScope.meta_desc = "Comparativo Gráfico da Categoria " + categoria[0].nome;
 
-    
+    $rootScope.trocaBkg();
+
+
     $scope.$on("$viewContentLoaded", function () {
 
         $scope.categoria = "Comparativo entre os países da " + categoria[0].nome;
@@ -19,7 +20,7 @@ trank.controller("ComparativoController", function ($rootScope, $scope, $timeout
     function initComparativo() {
         var labels = [];
         var data = [];
-        
+
         for (var i = 0; i < lugares.length; i++) {
             labels.push(lugares[i].nome);
             data.push(lugares[i].ranking);
@@ -53,7 +54,7 @@ trank.controller("ComparativoController", function ($rootScope, $scope, $timeout
             var activeBars = myNewChart.getBarsAtEvent(evt);
             var label = activeBars[0]._saved.label;
             var lugar = lugaresApi.listarLugarNome(label);
-            $rootScope.$apply(function(){
+            $rootScope.$apply(function () {
                 $location.path('/lugares/' + lugar.id);
             });
         });

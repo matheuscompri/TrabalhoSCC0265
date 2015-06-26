@@ -5,8 +5,8 @@
         $rootScope.title = "Lugares da Categoria " + categoria[0].nome;
         $rootScope.meta_desc = "Tranks - Lista de lugares da categoria " + categoria[0].nome;
         
-        console.log(categoria);
-            
+        $rootScope.trocaBkg();    
+                    
         $scope.$on("$viewContentLoaded", function () {
 	      $timeout(function() {
 	            initInicio();
