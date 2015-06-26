@@ -389,5 +389,23 @@ api.factory("lugaresApi", function () {
             return id;
                 
         },
+        
+        autoComplete: function (){
+            
+            var ac = [];
+            
+            //Obtem todos os nomes de categorias
+            for (var i =0; i<categorias.length; i++){
+                ac.push(categorias[i].nome);
+            }
+            
+            //Obtem todos os nomes de lugares
+            for (var i =0; i<lugares.length; i++){
+                ac.push(lugares[i].nome);
+            }
+            
+            return ac;
+            
+        }
     }
 });

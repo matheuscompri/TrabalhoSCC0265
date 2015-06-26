@@ -1,8 +1,12 @@
     var trank = angular.module("trankApp");
 
-    trank.controller("MenuController", function ($rootScope, $scope, lugaresApi, $location) {
+    trank.controller("MenuController", function ($rootScope, $timeout, $scope, lugaresApi, $location) {
         $scope.categorias = lugaresApi.listarCategorias();
         $scope.usuario = false;
+
+        (function init() {
+	       initMenu(lugaresApi.autoComplete());
+        })();
 
         $rootScope.$watch('usuario', function( u ){
             $scope.usuario = u;
@@ -22,3 +26,9 @@
         }
 
     });
+
+function initMenu(autoComplete){
+    $( "#search" ).autocomplete({
+      source: autoComplete
+    });
+}

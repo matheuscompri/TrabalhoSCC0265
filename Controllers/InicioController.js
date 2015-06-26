@@ -7,6 +7,7 @@
 	      },0);
         });
 
+        
         $scope.lugares = lugaresApi.listaTodosLugares();
         $scope.categorias = lugaresApi.listarCategorias();
 
