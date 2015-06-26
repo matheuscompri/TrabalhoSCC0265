@@ -48,6 +48,20 @@ trank.config(function ($routeProvider) {
         }
     });
 
+    $routeProvider.when("/busca", {
+        controller: "BuscaController",
+        templateUrl: "Pages/buscaLugares.html",
+        resolve: {
+            termo: function ($route) {
+                return $route.current.params.termo;
+            },
+            lugares: function (lugaresApi, $route) {
+                var termo = $route.current.params.termo;
+                return lugaresApi.buscaLugares(termo);
+            },
+        }
+    });
+    
     $routeProvider.when("/lugares/:lugarId", {
         controller: "LugarController",
         templateUrl: "Pages/lugar.html",

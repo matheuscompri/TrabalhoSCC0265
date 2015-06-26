@@ -3,6 +3,8 @@
     trank.controller("MenuController", function ($rootScope, $timeout, $scope, lugaresApi, $location) {
         $scope.categorias = lugaresApi.listarCategorias();
         $scope.usuario = false;
+        
+        $scope.busca_termo = "";
 
         (function init() {
 	       initMenu(lugaresApi.autoComplete());
@@ -23,6 +25,11 @@
                 $location.search('next',$location.path());
                 $location.path('/entrar');
             }
+        }
+        
+        $scope.buscaSubmit = function (){
+            $location.search('termo',$scope.busca_termo);
+            $location.path("/busca/");
         }
 
     });

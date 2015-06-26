@@ -406,6 +406,20 @@ api.factory("lugaresApi", function () {
             
             return ac;
             
+        },
+        
+        buscaLugares: function (termo){
+            
+            var l = [];
+            
+            //Obtem todos os nomes de lugares
+            for (var i =0; i<lugares.length; i++){
+                if(lugares[i].nome.search( new RegExp(termo,"i"))){
+                    l.push(lugares[i]);
+                }
+            }
+            
+            return l;
         }
     }
 });

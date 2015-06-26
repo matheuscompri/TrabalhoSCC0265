@@ -47,9 +47,9 @@
 
 
                     <div class="col s3">
-                        <form>
+                        <form  ng-submit="buscaSubmit()" >
                             <div class="input-field">
-                                <input id="search" type="search" required>
+                                <input id="search" type="search" name="t" ng-model="busca_termo" required>
                                 <label for="search"><i class="mdi-action-search"></i>
                                 </label>
                                 <i class="mdi-navigation-close"></i>
@@ -181,6 +181,7 @@
     <script type="text/javascript" src="Controllers/MenuController.js"></script>
     <script type="text/javascript" src="Controllers/ComparativoController.js"></script>
     <script type="text/javascript" src="Controllers/CadastrarLugarController.js"></script>
+    <script type="text/javascript" src="Controllers/BuscaController.js"></script>
 
 
     <!-- Directives -->
