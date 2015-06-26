@@ -412,9 +412,11 @@ api.factory("lugaresApi", function () {
             
             var l = [];
             
+            var termo = termo.toLowerCase()
+            
             //Obtem todos os nomes de lugares
             for (var i =0; i<lugares.length; i++){
-                if(lugares[i].nome.search( new RegExp(termo,"i"))){
+                if(lugares[i].nome.toLowerCase().indexOf(termo) > -1){
                     l.push(lugares[i]);
                 }
             }
