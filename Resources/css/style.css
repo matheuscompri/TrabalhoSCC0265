@@ -1,6 +1,6 @@
 body
 {
-    background-image: url("/media/bkg_1.jpg");
+    background-image: url("../../media/bkg_1.jpg");
 }
 
 .row {
