@@ -1,6 +1,7 @@
 body
 {
     background-image: url("../../media/bkg_1.jpg");
+    background-size: cover;
 }
 
 .row {
