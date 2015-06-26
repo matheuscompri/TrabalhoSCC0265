@@ -29,8 +29,8 @@
                         <div id="login_cadastro" class="hide-on-med-and-down right">
 
                             <div ng-hide="usuario">
-                                <a class="waves-effect waves-light btn deep-purple" ng-click="login();" aria-label="Entrar">Login</a>
-                                <a class="waves-effect waves-light btn deep-purple" href="#/cadastro" aria-label="Registre-se">Cadastro</a>
+                                <a class="waves-effect waves-light btn deep-purple" ng-click="login();" aria-label="Entrar" tabindex="0">Login</a>
+                                <a class="waves-effect waves-light btn deep-purple" href="#/cadastro" aria-label="Registre-se" tabindex="1">Cadastro</a>
                             </div>
 
                             <div ng-show="usuario">
@@ -51,7 +51,7 @@
                     <div class="col s3">
                         <form  ng-submit="buscaSubmit()" >
                             <div class="input-field">
-                                <input class="white-gray" id="search" type="search" name="t" ng-model="busca_termo" required>
+                                <input class="grey-text" id="search" type="search" name="t" ng-model="busca_termo" required>
                                 <label for="search"><i class="mdi-action-search"></i>
                                 </label>
                                 <i class="mdi-navigation-close"></i>
